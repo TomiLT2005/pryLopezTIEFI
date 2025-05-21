@@ -1,0 +1,139 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using static pryLopezTparcial.clsUsuario;
+using System.Data;
+
+namespace pryLopezTparcial
+{
+    internal class clsConexionBD
+    {
+        private string cadena = "Server = localhost\\SQLEXPRESS;Database=Auditoria;Trusted_Connection=True;"; //Casa
+        private string cadena2 = "Server=localhost;Database=Auditoria;Trusted_Connection=True;"; //Laboratorio
+
+
+
+        //Verificar Conexión
+        public clsConexionBD()
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error en la conexión a la base de datos: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Listar BD
+        public void ListarBD(DataGridView Grilla)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "SELECT u.Id, u.Nombre, u.Contraseña, r.Nombre AS Rol FROM Usuarios u INNER JOIN Roles r ON u.RolId = r.Id;";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+                    Grilla.DataSource = tabla;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"No se pudieron cargar los productos correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Agregar
+        public void Agregar(clsUsuario usuario)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "INSERT INTO Usuarios (Nombre, Contraseña, RolId) VALUES (@nombre, @contraseña, @rolId)";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                    comando.Parameters.AddWithValue("@contraseña", usuario.Contraseña);
+                    comando.Parameters.AddWithValue("@rolId", 2);  //Siempre será 'usuario'
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Usuario agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al agregar usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
+
+
+        //-----------------------------------------------------------------------------------------
+
+
+            //verificar Usuario
+        public bool verificarUsuario(clsUsuario usuario)
+        {
+            bool loginExitoso = false;
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "SELECT RolId FROM Usuarios WHERE Nombre = @Nombre AND Contraseña = @Contraseña";
+                    
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@Nombre", usuario.Nombre);
+                    comando.Parameters.AddWithValue("@Contraseña", usuario.Contraseña);
+
+                    object match = comando.ExecuteScalar();
+
+                    if (match != null)
+                    {
+                        usuario.RolId = Convert.ToInt32(match);
+                        loginExitoso = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos. Intente nuevamente.", "Error de acceso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al verificar el Usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return loginExitoso;
+        }
+    }
+}
+
