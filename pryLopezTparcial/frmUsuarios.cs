@@ -34,7 +34,6 @@ namespace pryLopezTparcial
 
 
 
-
         //Controles Principales (Nuevo, Modificar, Eliminar)
         private void btnNuevo_Click(object sender, EventArgs e)
         {

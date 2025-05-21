@@ -15,6 +15,7 @@ namespace pryLopezTparcial
 
         private string nombreUsuario;
         private int rolUsuario;
+        private int tiempo = 0; //contador
 
         public frmInicio(string nombre, int rol)
         {

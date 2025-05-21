@@ -179,7 +179,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicio Sesion";
+            this.Text = "Inicio Sesión";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();

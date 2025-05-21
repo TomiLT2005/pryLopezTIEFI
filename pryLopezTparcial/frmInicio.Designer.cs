@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.statusBarInicio = new System.Windows.Forms.StatusStrip();
             this.lblUsuarioActivo = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuInicio = new System.Windows.Forms.MenuStrip();
-            this.mnuTareas = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTareas = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.statusBarInicio.SuspendLayout();
             this.menuInicio.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +73,24 @@
             this.menuInicio.TabIndex = 1;
             this.menuInicio.Text = "menuStrip1";
             // 
+            // mnuHome
+            // 
+            this.mnuHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSalir});
+            this.mnuHome.Image = global::pryLopezTparcial.Properties.Resources.imgHome;
+            this.mnuHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnuHome.Name = "mnuHome";
+            this.mnuHome.Size = new System.Drawing.Size(36, 28);
+            // 
+            // mnuSalir
+            // 
+            this.mnuSalir.Image = global::pryLopezTparcial.Properties.Resources.imgSalir;
+            this.mnuSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnuSalir.Name = "mnuSalir";
+            this.mnuSalir.Size = new System.Drawing.Size(151, 30);
+            this.mnuSalir.Text = "Cerrar Sesión";
+            this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
+            // 
             // mnuTareas
             // 
             this.mnuTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -88,30 +108,12 @@
             this.mnuAdmin.Size = new System.Drawing.Size(100, 28);
             this.mnuAdmin.Text = "Administración";
             // 
-            // mnuHome
-            // 
-            this.mnuHome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuSalir});
-            this.mnuHome.Image = global::pryLopezTparcial.Properties.Resources.imgHome;
-            this.mnuHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.mnuHome.Name = "mnuHome";
-            this.mnuHome.Size = new System.Drawing.Size(36, 28);
-            // 
-            // mnuSalir
-            // 
-            this.mnuSalir.Image = global::pryLopezTparcial.Properties.Resources.imgSalir;
-            this.mnuSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.mnuSalir.Name = "mnuSalir";
-            this.mnuSalir.Size = new System.Drawing.Size(188, 30);
-            this.mnuSalir.Text = "Cerrar Sesión";
-            this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
-            // 
             // mnuUsuarios
             // 
             this.mnuUsuarios.Image = global::pryLopezTparcial.Properties.Resources.imgUsuarios;
             this.mnuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuUsuarios.Name = "mnuUsuarios";
-            this.mnuUsuarios.Size = new System.Drawing.Size(188, 30);
+            this.mnuUsuarios.Size = new System.Drawing.Size(131, 30);
             this.mnuUsuarios.Text = "Usuarios";
             this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
@@ -120,7 +122,7 @@
             this.mnuAuditoria.Image = global::pryLopezTparcial.Properties.Resources.imgAuditoria;
             this.mnuAuditoria.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAuditoria.Name = "mnuAuditoria";
-            this.mnuAuditoria.Size = new System.Drawing.Size(188, 30);
+            this.mnuAuditoria.Size = new System.Drawing.Size(131, 30);
             this.mnuAuditoria.Text = "Auditoria";
             // 
             // frmInicio
@@ -159,5 +161,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
         private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
         private System.Windows.Forms.ToolStripMenuItem mnuAuditoria;
+        private System.Windows.Forms.Timer timerHora;
     }
 }
