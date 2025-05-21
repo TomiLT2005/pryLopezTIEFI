@@ -42,6 +42,8 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.epValidacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtBusUsuario = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.mrcUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).BeginInit();
@@ -72,6 +74,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -81,6 +84,7 @@
             this.btnModificar.TabIndex = 7;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -156,6 +160,7 @@
             this.btnVolver.TabIndex = 9;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnCancelar
             // 
@@ -163,18 +168,39 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(52, 39);
             this.btnCancelar.TabIndex = 10;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // epValidacion
             // 
             this.epValidacion.ContainerControl = this;
+            // 
+            // txtBusUsuario
+            // 
+            this.txtBusUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusUsuario.Location = new System.Drawing.Point(317, 33);
+            this.txtBusUsuario.Name = "txtBusUsuario";
+            this.txtBusUsuario.Size = new System.Drawing.Size(216, 25);
+            this.txtBusUsuario.TabIndex = 9;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(539, 28);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(52, 39);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 418);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBusUsuario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvUsuarios);
@@ -191,6 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -208,5 +235,7 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider epValidacion;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtBusUsuario;
     }
 }

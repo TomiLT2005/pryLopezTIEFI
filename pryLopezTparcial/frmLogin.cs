@@ -43,7 +43,7 @@ namespace pryLopezTparcial
             }
             else
             {
-                clsUsuario usuario = new clsUsuario(txtUsuario.Text, txtContraseña.Text, 0);
+                clsUsuario usuario = new clsUsuario(0, txtUsuario.Text, txtContraseña.Text, 0);
 
                 bool resultado = conexion.verificarUsuario(usuario);
 

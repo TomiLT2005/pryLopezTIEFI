@@ -12,13 +12,16 @@ namespace pryLopezTparcial
 {
     internal class clsConexionBD
     {
-        private string cadena = "Server = localhost\\SQLEXPRESS;Database=Auditoria;Trusted_Connection=True;"; //Casa
-        private string cadena2 = "Server=localhost;Database=Auditoria;Trusted_Connection=True;"; //Laboratorio
+
+        //Cadenas de conexión
+
+        private string cadena = "Server = localhost\\SQLEXPRESS;Database=Auditoria;Trusted_Connection=True;"; //Casa//
+        private string cadena2 = "Server=localhost;Database=Auditoria;Trusted_Connection=True;"; //Laboratorio//
 
 
 
         //Verificar Conexión
-        public clsConexionBD()
+        public void ConectarBD()
         {
             try
             {
@@ -32,6 +35,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error en la conexión a la base de datos: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Listar BD
@@ -55,9 +59,10 @@ namespace pryLopezTparcial
             }
             catch (Exception error)
             {
-                MessageBox.Show($"No se pudieron cargar los productos correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No se pudieron cargar los Usuarios correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Agregar
@@ -74,7 +79,7 @@ namespace pryLopezTparcial
 
                     comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
                     comando.Parameters.AddWithValue("@contraseña", usuario.Contraseña);
-                    comando.Parameters.AddWithValue("@rolId", 2);  //Siempre será 'usuario'
+                    comando.Parameters.AddWithValue("@rolId", 2);  //Siempre será 'usuario'//
 
                     comando.ExecuteNonQuery();
 
@@ -90,6 +95,95 @@ namespace pryLopezTparcial
 
 
 
+        //Modificar
+        public void Modificar(clsUsuario usuario)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "UPDATE Usuarios SET Nombre = @nombre, Contraseña = @contraseña  WHERE Id = @id";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                    comando.Parameters.AddWithValue("@contraseña", usuario.Contraseña);
+                    comando.Parameters.AddWithValue("@id",usuario.Id);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Usuario modificado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al modificar usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        //Eliminar
+        public void Eliminar(int id)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "DELETE FROM Usuarios WHERE Id = @id";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Usuario eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al eliminar el usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        //Buscar por nombre
+        public void BuscarporNombre(DataGridView Grilla, string nombreUsuario)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "SELECT * FROM Usuarios WHERE Nombre LIKE @nombre";
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@nombre", "%" + nombreUsuario + "%");
+
+
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+
+                    if (tabla.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No se encontró el usuario", "Resultado de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        Grilla.DataSource = tabla;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al buscar el usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
 
@@ -97,7 +191,7 @@ namespace pryLopezTparcial
         //-----------------------------------------------------------------------------------------
 
 
-            //verificar Usuario
+        //Verificar Usuario
         public bool verificarUsuario(clsUsuario usuario)
         {
             bool loginExitoso = false;
