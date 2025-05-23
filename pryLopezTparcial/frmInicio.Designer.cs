@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.statusBarInicio = new System.Windows.Forms.StatusStrip();
             this.lblUsuarioActivo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LblTiempo = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuInicio = new System.Windows.Forms.MenuStrip();
             this.mnuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +40,7 @@
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
-            this.timerHora = new System.Windows.Forms.Timer(this.components);
+            this.timerTiempo = new System.Windows.Forms.Timer(this.components);
             this.statusBarInicio.SuspendLayout();
             this.menuInicio.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +48,8 @@
             // statusBarInicio
             // 
             this.statusBarInicio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblUsuarioActivo});
+            this.lblUsuarioActivo,
+            this.LblTiempo});
             this.statusBarInicio.Location = new System.Drawing.Point(0, 532);
             this.statusBarInicio.Name = "statusBarInicio";
             this.statusBarInicio.Size = new System.Drawing.Size(845, 22);
@@ -60,6 +62,12 @@
             this.lblUsuarioActivo.Name = "lblUsuarioActivo";
             this.lblUsuarioActivo.Size = new System.Drawing.Size(90, 17);
             this.lblUsuarioActivo.Text = "Usuario Activo";
+            // 
+            // LblTiempo
+            // 
+            this.LblTiempo.Name = "LblTiempo";
+            this.LblTiempo.Size = new System.Drawing.Size(48, 17);
+            this.LblTiempo.Text = "Tiempo";
             // 
             // menuInicio
             // 
@@ -125,6 +133,10 @@
             this.mnuAuditoria.Size = new System.Drawing.Size(131, 30);
             this.mnuAuditoria.Text = "Auditoria";
             // 
+            // timerTiempo
+            // 
+            this.timerTiempo.Tick += new System.EventHandler(this.timerTiempo_Tick);
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -140,6 +152,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInicio_FormClosed);
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.statusBarInicio.ResumeLayout(false);
             this.statusBarInicio.PerformLayout();
@@ -161,6 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
         private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
         private System.Windows.Forms.ToolStripMenuItem mnuAuditoria;
-        private System.Windows.Forms.Timer timerHora;
+        private System.Windows.Forms.ToolStripStatusLabel LblTiempo;
+        private System.Windows.Forms.Timer timerTiempo;
     }
 }

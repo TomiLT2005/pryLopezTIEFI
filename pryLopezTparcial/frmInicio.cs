@@ -15,7 +15,10 @@ namespace pryLopezTparcial
 
         private string nombreUsuario;
         private int rolUsuario;
-        private int tiempo = 0; //contador
+        private DateTime horaInicio;
+        private DateTime horaFin;
+        private TimeSpan tiempoActual; 
+
 
         public frmInicio(string nombre, int rol)
         {
@@ -27,6 +30,9 @@ namespace pryLopezTparcial
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            horaInicio = DateTime.Now; //obtiene la hora de inicio
+            timerTiempo.Enabled = true; //inicia el timer
+
             //Usuario activo
             lblUsuarioActivo.Text = $"Bienvenido: {nombreUsuario}";
 
@@ -48,7 +54,8 @@ namespace pryLopezTparcial
 
         }
 
-
+       
+      
 
 
 
@@ -57,6 +64,8 @@ namespace pryLopezTparcial
         {
             if (MessageBox.Show("¿Estás seguro que quieres Cerrar Sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                timerTiempo.Enabled = false; //detiene el timer
+
                 Application.Exit(); // aca debo parar el contador
             }
         }
@@ -67,6 +76,24 @@ namespace pryLopezTparcial
         {
             frmUsuarios ventana = new frmUsuarios();
             ventana.ShowDialog();
+        }
+
+        
+
+        //Cierre FrmInicio
+        private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            horaFin = DateTime.Now; //obtiene la hora de cierre
+            timerTiempo.Enabled = false; //detiene el timer
+        }
+
+
+
+        //Tiempo Actual
+        private void timerTiempo_Tick(object sender, EventArgs e)
+        {
+            tiempoActual = DateTime.Now - horaFin;
+            LblTiempo.Text = "Activo: " + tiempoActual.ToString(@"hh\:mm\:ss"); 
         }
     }
 }
