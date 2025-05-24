@@ -188,8 +188,70 @@ namespace pryLopezTparcial
 
 
 
-        //-----------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //Guardar Sesión
+        public void GuardarSesion(string nombreUsuario, DateTime horaInicio, DateTime horaFin, TimeSpan duracion)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = @"INSERT INTO Sesiones (IdUsuario, FechaInicio, HoraInicio, HoraFin, TotalHoras)
+                         VALUES (
+                             (SELECT Id FROM Usuarios WHERE Nombre = @NombreUsuario),
+                             @FechaInicio, @HoraInicio, @HoraFin, @TotalHoras)";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+                    comando.Parameters.AddWithValue("@FechaInicio", horaInicio.Date);
+                    comando.Parameters.AddWithValue("@HoraInicio", horaInicio);
+                    comando.Parameters.AddWithValue("@HoraFin", horaFin);
+                    comando.Parameters.AddWithValue("@TotalHoras", duracion);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al guardar Sesión: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Listar Sesiones
+        public void ListarSesiones(DataGridView Grilla)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+
+                    string query = "SELECT u.Id, u.Nombre, s.FechaInicio, s.HoraInicio, s.HoraFin, s.TotalHoras AS TiempoTranscurrido FROM Sesiones s INNER JOIN Usuarios u ON s.IdUsuario = u.Id ORDER BY s.FechaInicio DESC, s.HoraInicio DESC;";
+                   
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+
+                    Grilla.DataSource = tabla;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"No se pudieron cargar las sesiones correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+        }
+
+
+
+
+
+        //-----------------------------------------------------------------------------------------
 
         //Verificar Usuario
         public bool verificarUsuario(clsUsuario usuario)

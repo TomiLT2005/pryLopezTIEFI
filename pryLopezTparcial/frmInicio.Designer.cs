@@ -33,6 +33,7 @@
             this.statusBarInicio = new System.Windows.Forms.StatusStrip();
             this.lblUsuarioActivo = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblTiempo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblFechaInicio = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuInicio = new System.Windows.Forms.MenuStrip();
             this.mnuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,8 @@
             // 
             this.statusBarInicio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblUsuarioActivo,
-            this.LblTiempo});
+            this.LblTiempo,
+            this.lblFechaInicio});
             this.statusBarInicio.Location = new System.Drawing.Point(0, 532);
             this.statusBarInicio.Name = "statusBarInicio";
             this.statusBarInicio.Size = new System.Drawing.Size(845, 22);
@@ -66,8 +68,15 @@
             // LblTiempo
             // 
             this.LblTiempo.Name = "LblTiempo";
-            this.LblTiempo.Size = new System.Drawing.Size(48, 17);
+            this.LblTiempo.Size = new System.Drawing.Size(702, 17);
+            this.LblTiempo.Spring = true;
             this.LblTiempo.Text = "Tiempo";
+            // 
+            // lblFechaInicio
+            // 
+            this.lblFechaInicio.Name = "lblFechaInicio";
+            this.lblFechaInicio.Size = new System.Drawing.Size(38, 17);
+            this.lblFechaInicio.Text = "Fecha";
             // 
             // menuInicio
             // 
@@ -132,6 +141,7 @@
             this.mnuAuditoria.Name = "mnuAuditoria";
             this.mnuAuditoria.Size = new System.Drawing.Size(131, 30);
             this.mnuAuditoria.Text = "Auditoria";
+            this.mnuAuditoria.Click += new System.EventHandler(this.mnuAuditoria_Click);
             // 
             // timerTiempo
             // 
@@ -176,5 +186,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAuditoria;
         private System.Windows.Forms.ToolStripStatusLabel LblTiempo;
         private System.Windows.Forms.Timer timerTiempo;
+        private System.Windows.Forms.ToolStripStatusLabel lblFechaInicio;
     }
 }

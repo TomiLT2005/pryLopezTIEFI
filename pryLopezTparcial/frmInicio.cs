@@ -17,7 +17,12 @@ namespace pryLopezTparcial
         private int rolUsuario;
         private DateTime horaInicio;
         private DateTime horaFin;
-        private TimeSpan tiempoActual; 
+        private TimeSpan tiempoTotal;
+
+
+        private int tiempoActual = 0; 
+
+        clsConexionBD conexion = new clsConexionBD(); 
 
 
         public frmInicio(string nombre, int rol)
@@ -30,11 +35,14 @@ namespace pryLopezTparcial
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            horaInicio = DateTime.Now; //obtiene la hora de inicio
+            horaInicio = DateTime.Now; //hora y fecha de Inicio
             timerTiempo.Enabled = true; //inicia el timer
 
             //Usuario activo
             lblUsuarioActivo.Text = $"Bienvenido: {nombreUsuario}";
+
+            //Fecha de Inicio
+            lblFechaInicio.Text = $"Fecha de Inicio: {horaInicio.ToString("dd/MM/yyyy")}";
 
 
             //control de acceso
@@ -54,8 +62,35 @@ namespace pryLopezTparcial
 
         }
 
-       
-      
+
+
+
+        //Ventana Usuarios
+        private void mnuUsuarios_Click(object sender, EventArgs e)
+        {
+            frmUsuarios ventana = new frmUsuarios();
+            ventana.ShowDialog();
+        }
+
+
+        //Ventana Auditoria
+        private void mnuAuditoria_Click(object sender, EventArgs e)
+        {
+            frmAuditoria ventana = new frmAuditoria();
+            ventana.ShowDialog();
+        }
+
+
+
+
+        //Tiempo Actual 
+        private void timerTiempo_Tick(object sender, EventArgs e)
+        {
+            tiempoActual++;
+            TimeSpan ts = TimeSpan.FromSeconds(tiempoActual);
+            LblTiempo.Text = ts.ToString(@"hh\:mm\:ss"); //opcional
+        }
+
 
 
 
@@ -66,34 +101,23 @@ namespace pryLopezTparcial
             {
                 timerTiempo.Enabled = false; //detiene el timer
 
-                Application.Exit(); // aca debo parar el contador
+                Application.Exit();
             }
         }
 
 
-        //Ventana Usuarios
-        private void mnuUsuarios_Click(object sender, EventArgs e)
-        {
-            frmUsuarios ventana = new frmUsuarios();
-            ventana.ShowDialog();
-        }
-
-        
-
         //Cierre FrmInicio
         private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
         {
-            horaFin = DateTime.Now; //obtiene la hora de cierre
             timerTiempo.Enabled = false; //detiene el timer
-        }
 
+            horaFin = DateTime.Now; //obtiene la hora de cierre 
 
+            //Tiempo Total
+            tiempoTotal = horaFin - horaInicio;
+            conexion.GuardarSesion(nombreUsuario, horaInicio, horaFin, tiempoTotal);
 
-        //Tiempo Actual
-        private void timerTiempo_Tick(object sender, EventArgs e)
-        {
-            tiempoActual = DateTime.Now - horaFin;
-            LblTiempo.Text = "Activo: " + tiempoActual.ToString(@"hh\:mm\:ss"); 
+            Application.Exit();
         }
     }
 }
