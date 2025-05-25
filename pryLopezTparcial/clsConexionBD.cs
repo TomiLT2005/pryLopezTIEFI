@@ -191,7 +191,7 @@ namespace pryLopezTparcial
         //-----------------------------------------------------------------------------------------------------------------
 
         //Guardar Sesión
-        public void GuardarSesion(string nombreUsuario, DateTime horaInicio, DateTime horaFin, TimeSpan duracion)
+        public void GuardarSesion(string nombreUsuario, DateTime horaInicio, DateTime horaFin, TimeSpan tiempototal)
         {
             try
             {
@@ -203,12 +203,13 @@ namespace pryLopezTparcial
                              (SELECT Id FROM Usuarios WHERE Nombre = @NombreUsuario),
                              @FechaInicio, @HoraInicio, @HoraFin, @TotalHoras)";
 
+
                     SqlCommand comando = new SqlCommand(query, conexion);
                     comando.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
                     comando.Parameters.AddWithValue("@FechaInicio", horaInicio.Date);
                     comando.Parameters.AddWithValue("@HoraInicio", horaInicio);
                     comando.Parameters.AddWithValue("@HoraFin", horaFin);
-                    comando.Parameters.AddWithValue("@TotalHoras", duracion);
+                    comando.Parameters.AddWithValue("@TotalHoras", tiempototal);
 
                     comando.ExecuteNonQuery();
                 }

@@ -64,31 +64,29 @@ namespace pryLopezTparcial
 
 
 
-
-        //Ventana Usuarios
-        private void mnuUsuarios_Click(object sender, EventArgs e)
+        //Cierre FrmInicio
+        private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmUsuarios ventana = new frmUsuarios();
-            ventana.ShowDialog();
+            timerTiempo.Enabled = false; //detiene el timer
+
+            horaFin = DateTime.Now; //obtiene la hora de cierre 
+
+            //Tiempo Total
+            tiempoTotal = horaFin - horaInicio;
+            conexion.GuardarSesion(nombreUsuario, horaInicio, horaFin, tiempoTotal);
+
+            Application.Exit();
         }
 
 
-        //Ventana Auditoria
-        private void mnuAuditoria_Click(object sender, EventArgs e)
-        {
-            frmAuditoria ventana = new frmAuditoria();
-            ventana.ShowDialog();
-        }
 
 
-
-
-        //Tiempo Actual 
+        //Tiempo Actual - Opcional
         private void timerTiempo_Tick(object sender, EventArgs e)
         {
             tiempoActual++;
             TimeSpan ts = TimeSpan.FromSeconds(tiempoActual);
-            LblTiempo.Text = ts.ToString(@"hh\:mm\:ss"); //opcional
+            LblTiempo.Text = ts.ToString(@"hh\:mm\:ss"); 
         }
 
 
@@ -106,18 +104,20 @@ namespace pryLopezTparcial
         }
 
 
-        //Cierre FrmInicio
-        private void frmInicio_FormClosed(object sender, FormClosedEventArgs e)
+
+        //Ventana Usuarios
+        private void mnuUsuarios_Click(object sender, EventArgs e)
         {
-            timerTiempo.Enabled = false; //detiene el timer
+            frmUsuarios ventana = new frmUsuarios();
+            ventana.ShowDialog();
+        }
 
-            horaFin = DateTime.Now; //obtiene la hora de cierre 
 
-            //Tiempo Total
-            tiempoTotal = horaFin - horaInicio;
-            conexion.GuardarSesion(nombreUsuario, horaInicio, horaFin, tiempoTotal);
-
-            Application.Exit();
+        //Ventana Auditoria
+        private void mnuAuditoria_Click(object sender, EventArgs e)
+        {
+            frmAuditoria ventana = new frmAuditoria();
+            ventana.ShowDialog();
         }
     }
 }

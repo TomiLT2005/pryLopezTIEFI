@@ -136,5 +136,20 @@
   <ItemGroup>
     <None Include="Resources\imgAuditoria.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgCancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVolver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgBuscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgModificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgEliminar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

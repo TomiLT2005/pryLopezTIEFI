@@ -68,6 +68,9 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Image = global::pryLopezTparcial.Properties.Resources.imgEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(23, 304);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(216, 39);
@@ -78,6 +81,9 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
+            this.btnModificar.Image = global::pryLopezTparcial.Properties.Resources.imgModificar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar.Location = new System.Drawing.Point(23, 259);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(216, 39);
@@ -154,21 +160,21 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(671, 28);
+            this.btnVolver.Image = global::pryLopezTparcial.Properties.Resources.imgVolver;
+            this.btnVolver.Location = new System.Drawing.Point(671, 30);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(52, 39);
+            this.btnVolver.Size = new System.Drawing.Size(52, 35);
             this.btnVolver.TabIndex = 9;
-            this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(729, 28);
+            this.btnCancelar.Image = global::pryLopezTparcial.Properties.Resources.imgCancelar;
+            this.btnCancelar.Location = new System.Drawing.Point(729, 30);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(52, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(52, 35);
             this.btnCancelar.TabIndex = 10;
-            this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -180,17 +186,18 @@
             // 
             this.txtBusUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusUsuario.Location = new System.Drawing.Point(317, 33);
+            this.txtBusUsuario.Multiline = true;
             this.txtBusUsuario.Name = "txtBusUsuario";
-            this.txtBusUsuario.Size = new System.Drawing.Size(216, 25);
+            this.txtBusUsuario.Size = new System.Drawing.Size(216, 32);
             this.txtBusUsuario.TabIndex = 9;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(539, 28);
+            this.btnBuscar.Image = global::pryLopezTparcial.Properties.Resources.imgBuscar;
+            this.btnBuscar.Location = new System.Drawing.Point(539, 30);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(52, 39);
+            this.btnBuscar.Size = new System.Drawing.Size(52, 35);
             this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
