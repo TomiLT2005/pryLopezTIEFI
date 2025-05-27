@@ -15,9 +15,10 @@ namespace pryLopezTparcial
 
         private string nombreUsuario;
         private int rolUsuario;
+        private DateTime fechaInicio;
         private DateTime horaInicio;
         private DateTime horaFin;
-        private TimeSpan tiempoTotal;
+        private TimeSpan tiempoTranscurrido;
 
 
         private int tiempoActual = 0; 
@@ -35,7 +36,9 @@ namespace pryLopezTparcial
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            horaInicio = DateTime.Now; //hora y fecha de Inicio
+            horaInicio = DateTime.Now;       //hora
+            fechaInicio = horaInicio.Date;   //fecha
+           
             timerTiempo.Enabled = true; //inicia el timer
 
             //Usuario activo
@@ -71,10 +74,16 @@ namespace pryLopezTparcial
 
             horaFin = DateTime.Now; //obtiene la hora de cierre 
 
-            //Tiempo Total
-            tiempoTotal = horaFin - horaInicio;
-            conexion.GuardarSesion(nombreUsuario, horaInicio, horaFin, tiempoTotal);
+            //Tiempo Transcurrido
+            tiempoTranscurrido = horaFin - horaInicio;
 
+            //Obtengo Id del Usuario por Nombre
+            int idUsuario = conexion.ObtenerIdUsuarioPorNombre(nombreUsuario);
+
+            clsSesion sesion = new clsSesion(0,idUsuario,fechaInicio,horaInicio,horaFin,tiempoTranscurrido);
+
+
+            conexion.GuardarSesion(sesion);
             Application.Exit();
         }
 

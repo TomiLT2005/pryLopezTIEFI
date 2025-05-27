@@ -29,7 +29,7 @@ namespace pryLopezTparcial
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             conexion.ConectarBD();   //verificar conexión//
-            conexion.ListarBD(dgvUsuarios);
+            conexion.Listar(dgvUsuarios);
         }
 
 
@@ -41,11 +41,13 @@ namespace pryLopezTparcial
             {
                 string Nombre = txtNomUsuario.Text;
                 string Contraseña = txtConUsuario.Text;
+                string Correo = txtCorreoUsuario.Text;
+                string Telefono = mtxtTelefonoUsuario.Text;
 
-                clsUsuario nuevousuario = new clsUsuario(0, Nombre, Contraseña, 2);
+                clsUsuario nuevousuario = new clsUsuario(0, Nombre, Contraseña, Correo, Telefono, 2);
 
                 conexion.Agregar(nuevousuario);
-                conexion.ListarBD(dgvUsuarios);
+                conexion.Listar(dgvUsuarios);
 
                 LimpiarCampos();
 
@@ -66,10 +68,10 @@ namespace pryLopezTparcial
         {
             if (validarCampos()) 
             {
-                clsUsuario usuario = new clsUsuario(IdSeleccionado, txtNomUsuario.Text, txtConUsuario.Text, 0);
+                clsUsuario usuario = new clsUsuario(IdSeleccionado, txtNomUsuario.Text, txtConUsuario.Text, txtCorreoUsuario.Text, mtxtTelefonoUsuario.Text, 0);
 
                 conexion.Modificar(usuario);
-                conexion.ListarBD(dgvUsuarios);
+                conexion.Listar(dgvUsuarios);
 
                 LimpiarCampos();
             }
@@ -87,7 +89,7 @@ namespace pryLopezTparcial
             if (res == DialogResult.Yes)
             {
                 conexion.Eliminar(IdSeleccionado);
-                conexion.ListarBD(dgvUsuarios);
+                conexion.Listar(dgvUsuarios);
 
                 LimpiarCampos();
             }
@@ -108,7 +110,7 @@ namespace pryLopezTparcial
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            conexion.ListarBD(dgvUsuarios);
+            conexion.Listar(dgvUsuarios);
             LimpiarCampos();
         }
 
@@ -118,7 +120,7 @@ namespace pryLopezTparcial
             LimpiarCampos();
 
             txtNomUsuario.Focus();
-            conexion.ListarBD(dgvUsuarios);
+            conexion.Listar(dgvUsuarios);
 
             btnNuevo.Enabled = true;
             btnModificar.Enabled = false;
@@ -139,6 +141,8 @@ namespace pryLopezTparcial
 
                 txtNomUsuario.Text = fila.Cells["Nombre"].Value.ToString();
                 txtConUsuario.Text = fila.Cells["Contraseña"].Value.ToString();
+                txtCorreoUsuario.Text = fila.Cells["Correo"].Value.ToString();
+                mtxtTelefonoUsuario.Text = fila.Cells["Telefono"].Value.ToString();
 
 
                 btnNuevo.Enabled = false;
@@ -169,6 +173,27 @@ namespace pryLopezTparcial
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(txtCorreoUsuario.Text))
+            {
+                epValidacion.SetError(txtCorreoUsuario, "Debe ingresar un correo electrónico");
+                txtCorreoUsuario.Focus();
+                return false;
+            }
+
+            if (!txtCorreoUsuario.Text.Contains("@")) //verifica si contiene @
+            {
+                epValidacion.SetError(txtCorreoUsuario, "El correo debe contener '@'");
+                txtCorreoUsuario.Focus();
+                return false;
+            }
+
+            if (!mtxtTelefonoUsuario.MaskFull || mtxtTelefonoUsuario.Text.Contains("_"))
+            {
+                epValidacion.SetError(mtxtTelefonoUsuario, "Debe ingresar un número de teléfono válido.");
+                mtxtTelefonoUsuario.Focus();
+                return false;
+            }
+
             return true; //esta todo correcto//
         }
 
@@ -177,6 +202,8 @@ namespace pryLopezTparcial
         {
             txtNomUsuario.Text = "";
             txtConUsuario.Text = "";
+            txtCorreoUsuario.Text = "";
+            mtxtTelefonoUsuario.Text = "";
             txtBusUsuario.Text = "";
             IdSeleccionado = 0;
         }

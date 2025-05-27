@@ -44,6 +44,10 @@
             this.epValidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtBusUsuario = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.mtxtTelefonoUsuario = new System.Windows.Forms.MaskedTextBox();
+            this.lbltelefono = new System.Windows.Forms.Label();
+            this.txtCorreoUsuario = new System.Windows.Forms.TextBox();
+            this.lblCorreo = new System.Windows.Forms.Label();
             this.mrcUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).BeginInit();
@@ -51,6 +55,10 @@
             // 
             // mrcUsuarios
             // 
+            this.mrcUsuarios.Controls.Add(this.txtCorreoUsuario);
+            this.mrcUsuarios.Controls.Add(this.lblCorreo);
+            this.mrcUsuarios.Controls.Add(this.lbltelefono);
+            this.mrcUsuarios.Controls.Add(this.mtxtTelefonoUsuario);
             this.mrcUsuarios.Controls.Add(this.btnEliminar);
             this.mrcUsuarios.Controls.Add(this.btnModificar);
             this.mrcUsuarios.Controls.Add(this.btnNuevo);
@@ -62,7 +70,7 @@
             this.mrcUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.mrcUsuarios.Name = "mrcUsuarios";
             this.mrcUsuarios.Padding = new System.Windows.Forms.Padding(4);
-            this.mrcUsuarios.Size = new System.Drawing.Size(273, 365);
+            this.mrcUsuarios.Size = new System.Drawing.Size(273, 508);
             this.mrcUsuarios.TabIndex = 0;
             this.mrcUsuarios.TabStop = false;
             // 
@@ -71,7 +79,7 @@
             this.btnEliminar.Enabled = false;
             this.btnEliminar.Image = global::pryLopezTparcial.Properties.Resources.imgEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(23, 304);
+            this.btnEliminar.Location = new System.Drawing.Point(23, 441);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(216, 39);
             this.btnEliminar.TabIndex = 8;
@@ -84,7 +92,7 @@
             this.btnModificar.Enabled = false;
             this.btnModificar.Image = global::pryLopezTparcial.Properties.Resources.imgModificar;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(23, 259);
+            this.btnModificar.Location = new System.Drawing.Point(23, 396);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(216, 39);
             this.btnModificar.TabIndex = 7;
@@ -96,7 +104,7 @@
             // 
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(23, 214);
+            this.btnNuevo.Location = new System.Drawing.Point(23, 351);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(216, 39);
             this.btnNuevo.TabIndex = 6;
@@ -154,14 +162,14 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(464, 319);
+            this.dgvUsuarios.Size = new System.Drawing.Size(516, 462);
             this.dgvUsuarios.TabIndex = 1;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
             // btnVolver
             // 
             this.btnVolver.Image = global::pryLopezTparcial.Properties.Resources.imgVolver;
-            this.btnVolver.Location = new System.Drawing.Point(671, 30);
+            this.btnVolver.Location = new System.Drawing.Point(723, 30);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(52, 35);
             this.btnVolver.TabIndex = 9;
@@ -171,7 +179,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Image = global::pryLopezTparcial.Properties.Resources.imgCancelar;
-            this.btnCancelar.Location = new System.Drawing.Point(729, 30);
+            this.btnCancelar.Location = new System.Drawing.Point(781, 30);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(52, 35);
             this.btnCancelar.TabIndex = 10;
@@ -201,11 +209,49 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // mtxtTelefonoUsuario
+            // 
+            this.mtxtTelefonoUsuario.Location = new System.Drawing.Point(23, 254);
+            this.mtxtTelefonoUsuario.Mask = "(0000) 000000";
+            this.mtxtTelefonoUsuario.Name = "mtxtTelefonoUsuario";
+            this.mtxtTelefonoUsuario.Size = new System.Drawing.Size(216, 22);
+            this.mtxtTelefonoUsuario.TabIndex = 9;
+            // 
+            // lbltelefono
+            // 
+            this.lbltelefono.AutoSize = true;
+            this.lbltelefono.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltelefono.Location = new System.Drawing.Point(20, 235);
+            this.lbltelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbltelefono.Name = "lbltelefono";
+            this.lbltelefono.Size = new System.Drawing.Size(53, 16);
+            this.lbltelefono.TabIndex = 10;
+            this.lbltelefono.Text = "Teléfono";
+            // 
+            // txtCorreoUsuario
+            // 
+            this.txtCorreoUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreoUsuario.Location = new System.Drawing.Point(23, 186);
+            this.txtCorreoUsuario.Name = "txtCorreoUsuario";
+            this.txtCorreoUsuario.Size = new System.Drawing.Size(216, 25);
+            this.txtCorreoUsuario.TabIndex = 12;
+            // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Location = new System.Drawing.Point(20, 163);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(42, 16);
+            this.lblCorreo.TabIndex = 11;
+            this.lblCorreo.Text = "Correo";
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 418);
+            this.ClientSize = new System.Drawing.Size(854, 561);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBusUsuario);
             this.Controls.Add(this.btnCancelar);
@@ -244,5 +290,9 @@
         private System.Windows.Forms.ErrorProvider epValidacion;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBusUsuario;
+        private System.Windows.Forms.MaskedTextBox mtxtTelefonoUsuario;
+        private System.Windows.Forms.TextBox txtCorreoUsuario;
+        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.Label lbltelefono;
     }
 }
