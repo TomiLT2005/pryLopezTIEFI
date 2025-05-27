@@ -24,5 +24,10 @@ namespace pryLopezTparcial
         {
             conexionBD.ListarSesiones(dgvAuditoria);
         }
+
+        private void dtpBuscarFecha_ValueChanged(object sender, EventArgs e)
+        {
+            conexionBD.BuscarPorFecha(dgvAuditoria, dtpBuscarFecha.Value);
+        }
     }
 }

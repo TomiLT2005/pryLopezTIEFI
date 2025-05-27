@@ -45,7 +45,8 @@ namespace pryLopezTparcial
                 using (SqlConnection conexion = new SqlConnection(cadena))
                 {
                     conexion.Open();
-                    string query = "SELECT u.Id, u.Nombre, u.Contraseña, u.Correo, u.Telefono, r.Nombre AS Rol FROM Usuarios u INNER JOIN Roles r ON u.RolId = r.Id;";
+                    string query = "SELECT u.Id, u.Nombre, u.Contraseña, u.Correo, u.Telefono, r.Nombre AS Rol " +
+                                   "FROM Usuarios u INNER JOIN Roles r ON u.RolId = r.Id;";
 
                     SqlCommand comando = new SqlCommand(query, conexion);
                     SqlDataAdapter adaptador = new SqlDataAdapter(comando);
@@ -155,7 +156,7 @@ namespace pryLopezTparcial
 
 
 
-        //Buscar por nombre de Usuario
+        //Buscar Nombre de Usuario
         public void BuscarporNombre(DataGridView Grilla, string nombreUsuario)
         {
             try
@@ -172,7 +173,9 @@ namespace pryLopezTparcial
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);
 
-                    if (tabla.Rows.Count == 0)
+
+                    //Si no se encuentra el usuario y escribe mas de 2 letras, mostrar mensaje
+                    if (tabla.Rows.Count == 0 && nombreUsuario.Length > 2)
                     {
                         MessageBox.Show("No se encontró el usuario", "Resultado de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -185,6 +188,44 @@ namespace pryLopezTparcial
             catch (Exception error)
             {
                 MessageBox.Show("Error al buscar el usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        //Buscar Sesiones por Fecha
+        public void BuscarPorFecha(DataGridView grilla, DateTime fecha)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "SELECT u.Nombre, s.FechaInicio, s.HoraInicio, s.HoraFin, s.TiempoTranscurrido " +
+                                   "FROM Sesiones s INNER JOIN Usuarios u ON s.IdUsuario = u.Id " +
+                                   "WHERE CAST(s.FechaInicio AS DATE) = @fecha";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@fecha", fecha.Date);
+
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+
+                    if (tabla.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No se encontraron sesiones para la fecha seleccionada.", "Resultado de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        grilla.DataSource = tabla;
+                    }
+                        
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al buscar por fecha: " + error.Message);
             }
         }
 
@@ -309,7 +350,7 @@ namespace pryLopezTparcial
                 {
                     conexion.Open();
 
-                    string query = "SELECT u.Id, u.Nombre, s.FechaInicio, s.HoraInicio, s.HoraFin, s.TiempoTranscurrido FROM Sesiones s INNER JOIN Usuarios u ON s.IdUsuario = u.Id ORDER BY s.FechaInicio DESC, s.HoraInicio DESC;";
+                    string query = "SELECT u.Nombre, s.FechaInicio, s.HoraInicio, s.HoraFin, s.TiempoTranscurrido FROM Sesiones s INNER JOIN Usuarios u ON s.IdUsuario = u.Id ORDER BY s.FechaInicio DESC, s.HoraInicio DESC;";
 
 
                     SqlCommand comando = new SqlCommand(query, conexion);

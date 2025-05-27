@@ -99,12 +99,9 @@ namespace pryLopezTparcial
 
 
         //Controles Secundarios (Buscar, Volver, Cancelar)
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void txtBusUsuario_TextChanged(object sender, EventArgs e)
         {
-            string busqueda = txtBusUsuario.Text;
-            conexion.BuscarporNombre(dgvUsuarios, busqueda);
-
-            LimpiarCampos();
+            conexion.BuscarporNombre(dgvUsuarios, txtBusUsuario.Text);
         }
 
 

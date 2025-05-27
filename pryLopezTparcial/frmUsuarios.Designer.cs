@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.mrcUsuarios = new System.Windows.Forms.GroupBox();
+            this.txtCorreoUsuario = new System.Windows.Forms.TextBox();
+            this.lblCorreo = new System.Windows.Forms.Label();
+            this.lbltelefono = new System.Windows.Forms.Label();
+            this.mtxtTelefonoUsuario = new System.Windows.Forms.MaskedTextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -43,14 +47,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.epValidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtBusUsuario = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.mtxtTelefonoUsuario = new System.Windows.Forms.MaskedTextBox();
-            this.lbltelefono = new System.Windows.Forms.Label();
-            this.txtCorreoUsuario = new System.Windows.Forms.TextBox();
-            this.lblCorreo = new System.Windows.Forms.Label();
+            this.mrcBuscar = new System.Windows.Forms.GroupBox();
             this.mrcUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).BeginInit();
+            this.mrcBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
             // mrcUsuarios
@@ -73,6 +74,44 @@
             this.mrcUsuarios.Size = new System.Drawing.Size(273, 508);
             this.mrcUsuarios.TabIndex = 0;
             this.mrcUsuarios.TabStop = false;
+            // 
+            // txtCorreoUsuario
+            // 
+            this.txtCorreoUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreoUsuario.Location = new System.Drawing.Point(23, 186);
+            this.txtCorreoUsuario.Name = "txtCorreoUsuario";
+            this.txtCorreoUsuario.Size = new System.Drawing.Size(216, 25);
+            this.txtCorreoUsuario.TabIndex = 12;
+            // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Location = new System.Drawing.Point(20, 163);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(42, 16);
+            this.lblCorreo.TabIndex = 11;
+            this.lblCorreo.Text = "Correo";
+            // 
+            // lbltelefono
+            // 
+            this.lbltelefono.AutoSize = true;
+            this.lbltelefono.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltelefono.Location = new System.Drawing.Point(20, 235);
+            this.lbltelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbltelefono.Name = "lbltelefono";
+            this.lbltelefono.Size = new System.Drawing.Size(53, 16);
+            this.lbltelefono.TabIndex = 10;
+            this.lbltelefono.Text = "Teléfono";
+            // 
+            // mtxtTelefonoUsuario
+            // 
+            this.mtxtTelefonoUsuario.Location = new System.Drawing.Point(23, 254);
+            this.mtxtTelefonoUsuario.Mask = "(0000) 000000";
+            this.mtxtTelefonoUsuario.Name = "mtxtTelefonoUsuario";
+            this.mtxtTelefonoUsuario.Size = new System.Drawing.Size(216, 22);
+            this.mtxtTelefonoUsuario.TabIndex = 9;
             // 
             // btnEliminar
             // 
@@ -156,20 +195,21 @@
             this.dgvUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuarios.AllowUserToResizeColumns = false;
             this.dgvUsuarios.AllowUserToResizeRows = false;
+            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(317, 74);
+            this.dgvUsuarios.Location = new System.Drawing.Point(320, 85);
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(516, 462);
+            this.dgvUsuarios.Size = new System.Drawing.Size(553, 451);
             this.dgvUsuarios.TabIndex = 1;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
             // btnVolver
             // 
             this.btnVolver.Image = global::pryLopezTparcial.Properties.Resources.imgVolver;
-            this.btnVolver.Location = new System.Drawing.Point(723, 30);
+            this.btnVolver.Location = new System.Drawing.Point(763, 35);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(52, 35);
             this.btnVolver.TabIndex = 9;
@@ -179,7 +219,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Image = global::pryLopezTparcial.Properties.Resources.imgCancelar;
-            this.btnCancelar.Location = new System.Drawing.Point(781, 30);
+            this.btnCancelar.Location = new System.Drawing.Point(821, 35);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(52, 35);
             this.btnCancelar.TabIndex = 10;
@@ -193,67 +233,29 @@
             // txtBusUsuario
             // 
             this.txtBusUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusUsuario.Location = new System.Drawing.Point(317, 33);
+            this.txtBusUsuario.Location = new System.Drawing.Point(6, 22);
             this.txtBusUsuario.Multiline = true;
             this.txtBusUsuario.Name = "txtBusUsuario";
-            this.txtBusUsuario.Size = new System.Drawing.Size(216, 32);
+            this.txtBusUsuario.Size = new System.Drawing.Size(249, 23);
             this.txtBusUsuario.TabIndex = 9;
+            this.txtBusUsuario.TextChanged += new System.EventHandler(this.txtBusUsuario_TextChanged);
             // 
-            // btnBuscar
+            // mrcBuscar
             // 
-            this.btnBuscar.Image = global::pryLopezTparcial.Properties.Resources.imgBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(539, 30);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(52, 35);
-            this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // mtxtTelefonoUsuario
-            // 
-            this.mtxtTelefonoUsuario.Location = new System.Drawing.Point(23, 254);
-            this.mtxtTelefonoUsuario.Mask = "(0000) 000000";
-            this.mtxtTelefonoUsuario.Name = "mtxtTelefonoUsuario";
-            this.mtxtTelefonoUsuario.Size = new System.Drawing.Size(216, 22);
-            this.mtxtTelefonoUsuario.TabIndex = 9;
-            // 
-            // lbltelefono
-            // 
-            this.lbltelefono.AutoSize = true;
-            this.lbltelefono.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltelefono.Location = new System.Drawing.Point(20, 235);
-            this.lbltelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbltelefono.Name = "lbltelefono";
-            this.lbltelefono.Size = new System.Drawing.Size(53, 16);
-            this.lbltelefono.TabIndex = 10;
-            this.lbltelefono.Text = "Teléfono";
-            // 
-            // txtCorreoUsuario
-            // 
-            this.txtCorreoUsuario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoUsuario.Location = new System.Drawing.Point(23, 186);
-            this.txtCorreoUsuario.Name = "txtCorreoUsuario";
-            this.txtCorreoUsuario.Size = new System.Drawing.Size(216, 25);
-            this.txtCorreoUsuario.TabIndex = 12;
-            // 
-            // lblCorreo
-            // 
-            this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(20, 163);
-            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(42, 16);
-            this.lblCorreo.TabIndex = 11;
-            this.lblCorreo.Text = "Correo";
+            this.mrcBuscar.Controls.Add(this.txtBusUsuario);
+            this.mrcBuscar.Location = new System.Drawing.Point(320, 25);
+            this.mrcBuscar.Name = "mrcBuscar";
+            this.mrcBuscar.Size = new System.Drawing.Size(261, 53);
+            this.mrcBuscar.TabIndex = 11;
+            this.mrcBuscar.TabStop = false;
+            this.mrcBuscar.Text = "Buscar Usuario";
             // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 561);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtBusUsuario);
+            this.ClientSize = new System.Drawing.Size(897, 561);
+            this.Controls.Add(this.mrcBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvUsuarios);
@@ -269,8 +271,9 @@
             this.mrcUsuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).EndInit();
+            this.mrcBuscar.ResumeLayout(false);
+            this.mrcBuscar.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -288,11 +291,11 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider epValidacion;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBusUsuario;
         private System.Windows.Forms.MaskedTextBox mtxtTelefonoUsuario;
         private System.Windows.Forms.TextBox txtCorreoUsuario;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lbltelefono;
+        private System.Windows.Forms.GroupBox mrcBuscar;
     }
 }
