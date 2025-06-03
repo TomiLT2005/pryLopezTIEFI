@@ -23,7 +23,7 @@ namespace pryLopezTparcial
 
         private int tiempoActual = 0; 
 
-        clsConexionBD conexion = new clsConexionBD(); 
+        clsConexion conexion = new clsConexion(); 
 
 
         public frmInicio(string nombre, int rol)
@@ -49,20 +49,31 @@ namespace pryLopezTparcial
 
 
             //control de acceso
-            if (rolUsuario == 1) 
+            if (rolUsuario == 1)
             {
                 mnuHome.Visible = true;
                 mnuTareas.Visible = false;
                 mnuAdmin.Visible = true;
 
             }
+            else if (rolUsuario == 2)
+            {
+                mnuHome.Visible = true;
+                mnuTareas.Visible = true;
+                mnuGestion.Visible = true;
+                mnuHistorial.Visible = true;
+                mnuRegistro.Visible = false;
+                mnuAdmin.Visible = false;
+            }
             else 
             {
                 mnuHome.Visible = true;
                 mnuTareas.Visible = true;
+                mnuHistorial.Visible = true;
+                mnuRegistro.Visible = true;
+                mnuGestion.Visible = false;
                 mnuAdmin.Visible = false;
             }
-
         }
 
 
@@ -126,6 +137,27 @@ namespace pryLopezTparcial
         private void mnuAuditoria_Click(object sender, EventArgs e)
         {
             frmAuditoria ventana = new frmAuditoria();
+            ventana.ShowDialog();
+        }
+
+        //Ventana Gestion
+        private void mnuGestion_Click(object sender, EventArgs e)
+        {
+            frmGestion ventana = new frmGestion();
+            ventana.ShowDialog();
+        }
+
+        //Ventana Registro
+        private void mnuRegistro_Click(object sender, EventArgs e)
+        {
+            frmRegistro ventana = new frmRegistro();
+            ventana.ShowDialog();
+        }
+
+        //Ventana Historial
+        private void mnuHistorial_Click(object sender, EventArgs e)
+        {
+            frmHistorial ventana = new frmHistorial();
             ventana.ShowDialog();
         }
     }

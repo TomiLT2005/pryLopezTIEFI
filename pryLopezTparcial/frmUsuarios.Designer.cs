@@ -48,6 +48,8 @@
             this.epValidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtBusUsuario = new System.Windows.Forms.TextBox();
             this.mrcBuscar = new System.Windows.Forms.GroupBox();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.mrcUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).BeginInit();
@@ -56,6 +58,8 @@
             // 
             // mrcUsuarios
             // 
+            this.mrcUsuarios.Controls.Add(this.cmbRoles);
+            this.mrcUsuarios.Controls.Add(this.lblRol);
             this.mrcUsuarios.Controls.Add(this.txtCorreoUsuario);
             this.mrcUsuarios.Controls.Add(this.lblCorreo);
             this.mrcUsuarios.Controls.Add(this.lbltelefono);
@@ -71,7 +75,7 @@
             this.mrcUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.mrcUsuarios.Name = "mrcUsuarios";
             this.mrcUsuarios.Padding = new System.Windows.Forms.Padding(4);
-            this.mrcUsuarios.Size = new System.Drawing.Size(273, 508);
+            this.mrcUsuarios.Size = new System.Drawing.Size(273, 571);
             this.mrcUsuarios.TabIndex = 0;
             this.mrcUsuarios.TabStop = false;
             // 
@@ -118,7 +122,7 @@
             this.btnEliminar.Enabled = false;
             this.btnEliminar.Image = global::pryLopezTparcial.Properties.Resources.imgEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(23, 441);
+            this.btnEliminar.Location = new System.Drawing.Point(23, 511);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(216, 39);
             this.btnEliminar.TabIndex = 8;
@@ -131,7 +135,7 @@
             this.btnModificar.Enabled = false;
             this.btnModificar.Image = global::pryLopezTparcial.Properties.Resources.imgModificar;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(23, 396);
+            this.btnModificar.Location = new System.Drawing.Point(23, 466);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(216, 39);
             this.btnModificar.TabIndex = 7;
@@ -143,7 +147,7 @@
             // 
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(23, 351);
+            this.btnNuevo.Location = new System.Drawing.Point(23, 421);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(216, 39);
             this.btnNuevo.TabIndex = 6;
@@ -202,7 +206,7 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(553, 451);
+            this.dgvUsuarios.Size = new System.Drawing.Size(553, 514);
             this.dgvUsuarios.TabIndex = 1;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
@@ -250,11 +254,30 @@
             this.mrcBuscar.TabStop = false;
             this.mrcBuscar.Text = "Buscar Usuario";
             // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(20, 302);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(24, 16);
+            this.lblRol.TabIndex = 13;
+            this.lblRol.Text = "Rol";
+            // 
+            // cmbRoles
+            // 
+            this.cmbRoles.FormattingEnabled = true;
+            this.cmbRoles.Location = new System.Drawing.Point(23, 321);
+            this.cmbRoles.Name = "cmbRoles";
+            this.cmbRoles.Size = new System.Drawing.Size(216, 24);
+            this.cmbRoles.TabIndex = 14;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 561);
+            this.ClientSize = new System.Drawing.Size(897, 627);
             this.Controls.Add(this.mrcBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnVolver);
@@ -297,5 +320,7 @@
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lbltelefono;
         private System.Windows.Forms.GroupBox mrcBuscar;
+        private System.Windows.Forms.ComboBox cmbRoles;
+        private System.Windows.Forms.Label lblRol;
     }
 }

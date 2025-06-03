@@ -13,7 +13,7 @@ namespace pryLopezTparcial
     public partial class frmUsuarios : Form
     {
 
-        clsConexionBD conexion = new clsConexionBD();
+        clsConexion conexion = new clsConexion();
 
 
         //Variable para guardar el Id seleccionado
@@ -29,7 +29,8 @@ namespace pryLopezTparcial
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             conexion.ConectarBD();   //verificar conexión//
-            conexion.Listar(dgvUsuarios);
+            conexion.Listar_Usuarios(dgvUsuarios);
+            conexion.CargarRoles(cmbRoles);
         }
 
 
@@ -43,11 +44,12 @@ namespace pryLopezTparcial
                 string Contraseña = txtConUsuario.Text;
                 string Correo = txtCorreoUsuario.Text;
                 string Telefono = mtxtTelefonoUsuario.Text;
+                int Rol = Convert.ToInt32(cmbRoles.SelectedValue);
 
-                clsUsuario nuevousuario = new clsUsuario(0, Nombre, Contraseña, Correo, Telefono, 2);
+                clsUsuario nuevousuario = new clsUsuario(0, Nombre, Contraseña, Correo, Telefono, Rol);
 
-                conexion.Agregar(nuevousuario);
-                conexion.Listar(dgvUsuarios);
+                conexion.Agregar_Usuario(nuevousuario);
+                conexion.Listar_Usuarios(dgvUsuarios);
 
                 LimpiarCampos();
 
@@ -68,10 +70,10 @@ namespace pryLopezTparcial
         {
             if (validarCampos()) 
             {
-                clsUsuario usuario = new clsUsuario(IdSeleccionado, txtNomUsuario.Text, txtConUsuario.Text, txtCorreoUsuario.Text, mtxtTelefonoUsuario.Text, 0);
+                clsUsuario usuario = new clsUsuario(IdSeleccionado, txtNomUsuario.Text, txtConUsuario.Text, txtCorreoUsuario.Text, mtxtTelefonoUsuario.Text, Convert.ToInt32(cmbRoles.SelectedValue));
 
-                conexion.Modificar(usuario);
-                conexion.Listar(dgvUsuarios);
+                conexion.Modificar_Usuario(usuario);
+                conexion.Listar_Usuarios(dgvUsuarios);
 
                 LimpiarCampos();
             }
@@ -88,8 +90,8 @@ namespace pryLopezTparcial
 
             if (res == DialogResult.Yes)
             {
-                conexion.Eliminar(IdSeleccionado);
-                conexion.Listar(dgvUsuarios);
+                conexion.Eliminar_Usuario(IdSeleccionado);
+                conexion.Listar_Usuarios(dgvUsuarios);
 
                 LimpiarCampos();
             }
@@ -101,13 +103,13 @@ namespace pryLopezTparcial
         //Controles Secundarios (Buscar, Volver, Cancelar)
         private void txtBusUsuario_TextChanged(object sender, EventArgs e)
         {
-            conexion.BuscarporNombre(dgvUsuarios, txtBusUsuario.Text);
+            conexion.BuscarporNombre_Usuario(dgvUsuarios, txtBusUsuario.Text);
         }
 
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            conexion.Listar(dgvUsuarios);
+            conexion.Listar_Usuarios(dgvUsuarios);
             LimpiarCampos();
         }
 
@@ -117,7 +119,7 @@ namespace pryLopezTparcial
             LimpiarCampos();
 
             txtNomUsuario.Focus();
-            conexion.Listar(dgvUsuarios);
+            conexion.Listar_Usuarios(dgvUsuarios);
 
             btnNuevo.Enabled = true;
             btnModificar.Enabled = false;
@@ -140,6 +142,8 @@ namespace pryLopezTparcial
                 txtConUsuario.Text = fila.Cells["Contraseña"].Value.ToString();
                 txtCorreoUsuario.Text = fila.Cells["Correo"].Value.ToString();
                 mtxtTelefonoUsuario.Text = fila.Cells["Telefono"].Value.ToString();
+                cmbRoles.SelectedValue = fila.Cells["RolId"].Value;
+
 
 
                 btnNuevo.Enabled = false;
@@ -191,6 +195,13 @@ namespace pryLopezTparcial
                 return false;
             }
 
+            if (cmbRoles.SelectedIndex == -1)
+            {
+                epValidacion.SetError(cmbRoles, "El Usuario necesita una Rol");
+                cmbRoles.Focus();
+                return false;
+            }
+
             return true; //esta todo correcto//
         }
 
@@ -202,6 +213,7 @@ namespace pryLopezTparcial
             txtCorreoUsuario.Text = "";
             mtxtTelefonoUsuario.Text = "";
             txtBusUsuario.Text = "";
+            cmbRoles.SelectedIndex = -1; 
             IdSeleccionado = 0;
         }
     }

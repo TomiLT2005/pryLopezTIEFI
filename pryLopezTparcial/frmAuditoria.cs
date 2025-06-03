@@ -13,7 +13,7 @@ namespace pryLopezTparcial
     public partial class frmAuditoria: Form
     {
 
-        clsConexionBD conexionBD = new clsConexionBD(); 
+        clsConexion conexionBD = new clsConexion(); 
 
         public frmAuditoria()
         {
@@ -27,7 +27,7 @@ namespace pryLopezTparcial
 
         private void dtpBuscarFecha_ValueChanged(object sender, EventArgs e)
         {
-            conexionBD.BuscarPorFecha(dgvAuditoria, dtpBuscarFecha.Value);
+            conexionBD.BuscarPorFecha_Sesiones(dgvAuditoria, dtpBuscarFecha.Value);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace pryLopezTparcial
 {
     public partial class frmLogin: Form
     {
-        clsConexionBD conexion = new clsConexionBD();
+        clsConexion conexion = new clsConexion();
 
 
         //Variable para guardar el número de intentos
@@ -45,7 +45,7 @@ namespace pryLopezTparcial
             {
                 clsUsuario usuario = new clsUsuario(0, txtUsuario.Text, txtContraseña.Text, "", "", 0);
 
-                bool resultado = conexion.verificarUsuario(usuario);
+                bool resultado = conexion.verificar_Usuario(usuario);
 
                 if (resultado)
                 {

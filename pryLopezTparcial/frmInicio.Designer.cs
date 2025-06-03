@@ -38,6 +38,9 @@
             this.mnuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTareas = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuGestion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRegistro = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHistorial = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,11 +113,36 @@
             // 
             // mnuTareas
             // 
+            this.mnuTareas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuGestion,
+            this.mnuRegistro,
+            this.mnuHistorial});
             this.mnuTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mnuTareas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuTareas.Name = "mnuTareas";
             this.mnuTareas.Size = new System.Drawing.Size(52, 28);
             this.mnuTareas.Text = "Tareas";
+            // 
+            // mnuGestion
+            // 
+            this.mnuGestion.Name = "mnuGestion";
+            this.mnuGestion.Size = new System.Drawing.Size(180, 22);
+            this.mnuGestion.Text = "Gestión";
+            this.mnuGestion.Click += new System.EventHandler(this.mnuGestion_Click);
+            // 
+            // mnuRegistro
+            // 
+            this.mnuRegistro.Name = "mnuRegistro";
+            this.mnuRegistro.Size = new System.Drawing.Size(180, 22);
+            this.mnuRegistro.Text = "Registro";
+            this.mnuRegistro.Click += new System.EventHandler(this.mnuRegistro_Click);
+            // 
+            // mnuHistorial
+            // 
+            this.mnuHistorial.Name = "mnuHistorial";
+            this.mnuHistorial.Size = new System.Drawing.Size(180, 22);
+            this.mnuHistorial.Text = "Historial";
+            this.mnuHistorial.Click += new System.EventHandler(this.mnuHistorial_Click);
             // 
             // mnuAdmin
             // 
@@ -187,5 +215,8 @@
         private System.Windows.Forms.ToolStripStatusLabel LblTiempo;
         private System.Windows.Forms.Timer timerTiempo;
         private System.Windows.Forms.ToolStripStatusLabel lblFechaInicio;
+        private System.Windows.Forms.ToolStripMenuItem mnuGestion;
+        private System.Windows.Forms.ToolStripMenuItem mnuRegistro;
+        private System.Windows.Forms.ToolStripMenuItem mnuHistorial;
     }
 }
