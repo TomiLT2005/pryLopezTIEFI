@@ -38,13 +38,14 @@
             this.mnuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTareas = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuGestion = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAgregarLugar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRegistro = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHistorial = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.timerTiempo = new System.Windows.Forms.Timer(this.components);
+            this.mnuAgregarTarea = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarInicio.SuspendLayout();
             this.menuInicio.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +115,8 @@
             // mnuTareas
             // 
             this.mnuTareas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuGestion,
+            this.mnuAgregarTarea,
+            this.mnuAgregarLugar,
             this.mnuRegistro,
             this.mnuHistorial});
             this.mnuTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -123,12 +125,12 @@
             this.mnuTareas.Size = new System.Drawing.Size(52, 28);
             this.mnuTareas.Text = "Tareas";
             // 
-            // mnuGestion
+            // mnuAgregarLugar
             // 
-            this.mnuGestion.Name = "mnuGestion";
-            this.mnuGestion.Size = new System.Drawing.Size(180, 22);
-            this.mnuGestion.Text = "Gestión";
-            this.mnuGestion.Click += new System.EventHandler(this.mnuGestion_Click);
+            this.mnuAgregarLugar.Name = "mnuAgregarLugar";
+            this.mnuAgregarLugar.Size = new System.Drawing.Size(180, 22);
+            this.mnuAgregarLugar.Text = "Agregar Lugar";
+            this.mnuAgregarLugar.Click += new System.EventHandler(this.mnuGestion_Click);
             // 
             // mnuRegistro
             // 
@@ -175,6 +177,12 @@
             // 
             this.timerTiempo.Tick += new System.EventHandler(this.timerTiempo_Tick);
             // 
+            // mnuAgregarTarea
+            // 
+            this.mnuAgregarTarea.Name = "mnuAgregarTarea";
+            this.mnuAgregarTarea.Size = new System.Drawing.Size(180, 22);
+            this.mnuAgregarTarea.Text = "Agregar Tarea";
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -215,8 +223,9 @@
         private System.Windows.Forms.ToolStripStatusLabel LblTiempo;
         private System.Windows.Forms.Timer timerTiempo;
         private System.Windows.Forms.ToolStripStatusLabel lblFechaInicio;
-        private System.Windows.Forms.ToolStripMenuItem mnuGestion;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregarLugar;
         private System.Windows.Forms.ToolStripMenuItem mnuRegistro;
         private System.Windows.Forms.ToolStripMenuItem mnuHistorial;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregarTarea;
     }
 }

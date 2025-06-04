@@ -51,27 +51,17 @@ namespace pryLopezTparcial
             //control de acceso
             if (rolUsuario == 1)
             {
-                mnuHome.Visible = true;
-                mnuTareas.Visible = false;
-                mnuAdmin.Visible = true;
-
+                mnuRegistro.Visible = false;
             }
             else if (rolUsuario == 2)
             {
-                mnuHome.Visible = true;
-                mnuTareas.Visible = true;
-                mnuGestion.Visible = true;
-                mnuHistorial.Visible = true;
                 mnuRegistro.Visible = false;
                 mnuAdmin.Visible = false;
             }
             else 
             {
-                mnuHome.Visible = true;
-                mnuTareas.Visible = true;
-                mnuHistorial.Visible = true;
-                mnuRegistro.Visible = true;
-                mnuGestion.Visible = false;
+                mnuAgregarTarea.Visible = false;
+                mnuAgregarLugar.Visible = false;
                 mnuAdmin.Visible = false;
             }
         }

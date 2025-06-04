@@ -315,7 +315,6 @@ namespace pryLopezTparcial
         }
 
 
-
         //Listar Registros
         public void Listar_Registros(DataGridView grilla)
         {
@@ -345,7 +344,6 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al listar los registros: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
 
         //Buscar Registros por Fecha
@@ -385,7 +383,6 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al buscar por fecha: " + error.Message);
             }
         }
-
 
 
         //Buscar por Tarea
@@ -432,6 +429,9 @@ namespace pryLopezTparcial
 
 
 
+
+        //-----------------------------------------------------------------------------------------------------------------
+
         //Cargar Tareas
         public void CargarTareas(ComboBox Combo)
         {
@@ -462,6 +462,87 @@ namespace pryLopezTparcial
         }
 
 
+        //Agregar Tarea
+        public void Agregar_Tarea(clsTarea tarea)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "INSERT INTO Tareas (Nombre) VALUES (@nombre)";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@nombre", tarea.Nombre);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Tarea agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al agregar tarea: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Modificar Tarea
+        public void Modificar_Tarea(clsTarea tarea)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "UPDATE Tareas SET Nombre = @nombre WHERE Id = @id";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    comando.Parameters.AddWithValue("@nombre", tarea.Nombre);
+                    comando.Parameters.AddWithValue("@id", tarea.Id);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Tarea modificada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al modificar tarea: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Eliminar Tarea
+        public void Eliminar_Tarea(int id)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "DELETE FROM Tareas WHERE Id = @id";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Tarea eliminada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al eliminar la tarea: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        //--------------------------------------------------------------------------------------------------------------------------------
+
         //Cargar Lugares
         public void CargarLugares(ComboBox Combo)
         {
@@ -491,6 +572,82 @@ namespace pryLopezTparcial
             }
         }
 
+
+        //Agregar Lugar
+        public void Agregar_Lugar(clsLugar lugar)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "INSERT INTO Lugares (Nombre) VALUES (@nombre)";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@nombre", lugar.Nombre);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Lugar agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al agregar lugar: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Modificar Lugar
+        public void Modificar_Lugar(clsLugar lugar)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "UPDATE Tareas SET Nombre = @nombre WHERE Id = @id";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    comando.Parameters.AddWithValue("@nombre", lugar.Nombre);
+                    comando.Parameters.AddWithValue("@id", lugar.Id);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Lugar modificado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al modificar lugar: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Eliminar Lugar
+        public void Eliminar_Lugar(int id)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "DELETE FROM Lugares WHERE Id = @id";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Lugar eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error al eliminar el lugar: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
 
@@ -527,7 +684,6 @@ namespace pryLopezTparcial
         }
 
 
-
         //Obtener Id del usuario por Nombre
         public int ObtenerIdUsuarioPorNombre(string nombreUsuario)
         {
@@ -561,7 +717,6 @@ namespace pryLopezTparcial
         }
 
 
-
         //Listar Sesiones
         public void ListarSesiones(DataGridView Grilla)
         {
@@ -588,7 +743,6 @@ namespace pryLopezTparcial
                 MessageBox.Show($"No se pudieron cargar las sesiones correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
 
         //Buscar Sesiones por Fecha

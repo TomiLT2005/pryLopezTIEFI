@@ -68,8 +68,8 @@ CREATE TABLE Registros (
     Salario BIT NOT NULL DEFAULT 0,
     Recibo BIT NOT NULL DEFAULT 0,
     Comentarios NVARCHAR(255) NULL,
-    FOREIGN KEY (IdTarea) REFERENCES Tareas(Id),
-    FOREIGN KEY (IdLugar) REFERENCES Lugares(Id)
+    FOREIGN KEY (TareaId) REFERENCES Tareas(Id),
+    FOREIGN KEY (LugarId) REFERENCES Lugares(Id)
 );
 GO
 

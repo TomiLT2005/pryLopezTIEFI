@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexion.cs" />
+    <Compile Include="clsLugar.cs" />
     <Compile Include="clsRegistro.cs" />
     <Compile Include="clsSesion.cs" />
+    <Compile Include="clsTarea.cs" />
     <Compile Include="clsUsuario.cs" />
     <Compile Include="frmAuditoria.cs">
       <SubType>Form</SubType>
