@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pryLopezTparcial
 {
-    public partial class frmGestion: Form
+    public partial class frmLugar: Form
     {
-        public frmGestion()
+        public frmLugar()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace pryLopezTparcial
 {
-    partial class frmGestion
+    partial class frmLugar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLugar));
             this.mrcTareas = new System.Windows.Forms.GroupBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtNomTarea = new System.Windows.Forms.TextBox();

@@ -38,6 +38,7 @@
             this.mnuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTareas = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAgregarTarea = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAgregarLugar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRegistro = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHistorial = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.timerTiempo = new System.Windows.Forms.Timer(this.components);
-            this.mnuAgregarTarea = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarInicio.SuspendLayout();
             this.menuInicio.SuspendLayout();
             this.SuspendLayout();
@@ -125,12 +125,18 @@
             this.mnuTareas.Size = new System.Drawing.Size(52, 28);
             this.mnuTareas.Text = "Tareas";
             // 
+            // mnuAgregarTarea
+            // 
+            this.mnuAgregarTarea.Name = "mnuAgregarTarea";
+            this.mnuAgregarTarea.Size = new System.Drawing.Size(180, 22);
+            this.mnuAgregarTarea.Text = "Agregar Tarea";
+            // 
             // mnuAgregarLugar
             // 
             this.mnuAgregarLugar.Name = "mnuAgregarLugar";
             this.mnuAgregarLugar.Size = new System.Drawing.Size(180, 22);
             this.mnuAgregarLugar.Text = "Agregar Lugar";
-            this.mnuAgregarLugar.Click += new System.EventHandler(this.mnuGestion_Click);
+            this.mnuAgregarLugar.Click += new System.EventHandler(this.mnuAgregarLugar_Click);
             // 
             // mnuRegistro
             // 
@@ -176,12 +182,6 @@
             // timerTiempo
             // 
             this.timerTiempo.Tick += new System.EventHandler(this.timerTiempo_Tick);
-            // 
-            // mnuAgregarTarea
-            // 
-            this.mnuAgregarTarea.Name = "mnuAgregarTarea";
-            this.mnuAgregarTarea.Size = new System.Drawing.Size(180, 22);
-            this.mnuAgregarTarea.Text = "Agregar Tarea";
             // 
             // frmInicio
             // 
