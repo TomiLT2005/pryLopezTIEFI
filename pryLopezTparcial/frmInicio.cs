@@ -130,8 +130,15 @@ namespace pryLopezTparcial
             ventana.ShowDialog();
         }
 
+        //Ventana Tareas
+       
+
         //Ventana Lugar
-   
+        private void mnuAgregarLugar_Click(object sender, EventArgs e)
+        {
+            frmLugar ventana = new frmLugar();
+            ventana.ShowDialog();
+        }
 
         //Ventana Registro
         private void mnuRegistro_Click(object sender, EventArgs e)
@@ -144,12 +151,6 @@ namespace pryLopezTparcial
         private void mnuHistorial_Click(object sender, EventArgs e)
         {
             frmHistorial ventana = new frmHistorial();
-            ventana.ShowDialog();
-        }
-
-        private void mnuAgregarLugar_Click(object sender, EventArgs e)
-        {
-            frmLugar ventana = new frmLugar();
             ventana.ShowDialog();
         }
     }

@@ -9,9 +9,9 @@ namespace pryLopezTparcial
     class clsLugar
     {
         public int Id { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
 
-        public clsLugar(int id, int nombre)
+        public clsLugar(int id, string nombre)
         {
             this.Id = id;
             this.Nombre = nombre;

@@ -539,6 +539,32 @@ namespace pryLopezTparcial
         }
 
 
+        //Listar Usuarios
+        public void Listar_Tareas(DataGridView Grilla)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "SELECT t.Id, t.Nombre FROM Tareas t";
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+                    Grilla.DataSource = tabla;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"No se pudieron cargar las Tareas correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
 
         //--------------------------------------------------------------------------------------------------------------------------------
@@ -606,7 +632,7 @@ namespace pryLopezTparcial
                 using (SqlConnection conexion = new SqlConnection(cadena))
                 {
                     conexion.Open();
-                    string query = "UPDATE Tareas SET Nombre = @nombre WHERE Id = @id";
+                    string query = "UPDATE Lugares SET Nombre = @nombre WHERE Id = @id";
 
                     SqlCommand comando = new SqlCommand(query, conexion);
 
@@ -646,6 +672,32 @@ namespace pryLopezTparcial
             catch (Exception error)
             {
                 MessageBox.Show("Error al eliminar el lugar: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Listar Usuarios
+        public void Listar_Lugares(DataGridView Grilla)
+        {
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(cadena))
+                {
+                    conexion.Open();
+                    string query = "SELECT l.Id, l.Nombre FROM Lugares l";
+                                  
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
+                    Grilla.DataSource = tabla;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"No se pudieron cargar los Lugares correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
