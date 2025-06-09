@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace pryLopezTparcial
 {
-    public partial class frmLugar: Form
+    public partial class frmLugares: Form
     {
 
         clsConexion conexion = new clsConexion();
@@ -20,7 +20,7 @@ namespace pryLopezTparcial
         private int IdSeleccionado = 0;
 
 
-        public frmLugar()
+        public frmLugares()
         {
             InitializeComponent();
         }
@@ -145,7 +145,5 @@ namespace pryLopezTparcial
             txtNomLugar.Text = "";
             IdSeleccionado = 0;
         }
-
-        
     }
 }

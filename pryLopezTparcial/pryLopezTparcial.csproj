@@ -58,11 +58,11 @@
     <Compile Include="frmAuditoria.Designer.cs">
       <DependentUpon>frmAuditoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLugar.cs">
+    <Compile Include="frmLugares.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLugar.Designer.cs">
-      <DependentUpon>frmLugar.cs</DependentUpon>
+    <Compile Include="frmLugares.Designer.cs">
+      <DependentUpon>frmLugares.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHistorial.cs">
       <SubType>Form</SubType>
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="frmAuditoria.resx">
       <DependentUpon>frmAuditoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLugar.resx">
-      <DependentUpon>frmLugar.cs</DependentUpon>
+    <EmbeddedResource Include="frmLugares.resx">
+      <DependentUpon>frmLugares.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistorial.resx">
       <DependentUpon>frmHistorial.cs</DependentUpon>
@@ -171,12 +171,6 @@
     <None Include="Resources\imgSalir.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imgUsuarios.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgAuditoria.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\imgCancelar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +184,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgEliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTareas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHistorial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgAgregarTarea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgAgregarLugar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgUsuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgAuditoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgRegistro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nenad-novakovic-mHX5e1gFQVo-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

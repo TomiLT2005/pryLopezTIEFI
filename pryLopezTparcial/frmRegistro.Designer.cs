@@ -76,7 +76,7 @@
             this.mrcRegistro.Size = new System.Drawing.Size(379, 587);
             this.mrcRegistro.TabIndex = 1;
             this.mrcRegistro.TabStop = false;
-            this.mrcRegistro.Text = "Nueva Registro";
+            this.mrcRegistro.Text = "Nuevo Registro";
             // 
             // btnCancelar
             // 
@@ -287,6 +287,7 @@
             this.ClientSize = new System.Drawing.Size(412, 627);
             this.Controls.Add(this.mrcRegistro);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

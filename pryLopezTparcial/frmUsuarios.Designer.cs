@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.mrcUsuarios = new System.Windows.Forms.GroupBox();
+            this.cmbRoles = new System.Windows.Forms.ComboBox();
+            this.lblRol = new System.Windows.Forms.Label();
             this.txtCorreoUsuario = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lbltelefono = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.epValidacion = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtBusUsuario = new System.Windows.Forms.TextBox();
             this.mrcBuscar = new System.Windows.Forms.GroupBox();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.mrcUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).BeginInit();
@@ -78,6 +78,25 @@
             this.mrcUsuarios.Size = new System.Drawing.Size(273, 571);
             this.mrcUsuarios.TabIndex = 0;
             this.mrcUsuarios.TabStop = false;
+            // 
+            // cmbRoles
+            // 
+            this.cmbRoles.FormattingEnabled = true;
+            this.cmbRoles.Location = new System.Drawing.Point(23, 321);
+            this.cmbRoles.Name = "cmbRoles";
+            this.cmbRoles.Size = new System.Drawing.Size(216, 24);
+            this.cmbRoles.TabIndex = 14;
+            // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(20, 302);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(24, 16);
+            this.lblRol.TabIndex = 13;
+            this.lblRol.Text = "Rol";
             // 
             // txtCorreoUsuario
             // 
@@ -253,25 +272,6 @@
             this.mrcBuscar.TabIndex = 11;
             this.mrcBuscar.TabStop = false;
             this.mrcBuscar.Text = "Buscar Usuario";
-            // 
-            // lblRol
-            // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(20, 302);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(24, 16);
-            this.lblRol.TabIndex = 13;
-            this.lblRol.Text = "Rol";
-            // 
-            // cmbRoles
-            // 
-            this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(23, 321);
-            this.cmbRoles.Name = "cmbRoles";
-            this.cmbRoles.Size = new System.Drawing.Size(216, 24);
-            this.cmbRoles.TabIndex = 14;
             // 
             // frmUsuarios
             // 

@@ -1,6 +1,6 @@
 ﻿namespace pryLopezTparcial
 {
-    partial class frmLugar
+    partial class frmLugares
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLugar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLugares));
             this.btnVolver = new System.Windows.Forms.Button();
             this.dgvLugares = new System.Windows.Forms.DataGridView();
             this.mrcUsuarios = new System.Windows.Forms.GroupBox();
@@ -147,7 +147,7 @@
             // 
             this.epValidacion.ContainerControl = this;
             // 
-            // frmLugar
+            // frmLugares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,7 +155,8 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvLugares);
             this.Controls.Add(this.mrcUsuarios);
-            this.Name = "frmLugar";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmLugares";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lugares";
             this.Load += new System.EventHandler(this.frmLugar_Load);

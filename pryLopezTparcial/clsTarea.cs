@@ -9,9 +9,9 @@ namespace pryLopezTparcial
     class clsTarea
     {
         public int Id { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
 
-        public clsTarea(int id, int nombre)
+        public clsTarea(int id, string nombre)
         {
             this.Id = id;
             this.Nombre = nombre;

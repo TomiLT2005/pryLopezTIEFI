@@ -102,6 +102,7 @@
             this.mnuHome.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuHome.Name = "mnuHome";
             this.mnuHome.Size = new System.Drawing.Size(36, 28);
+            this.mnuHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mnuSalir
             // 
@@ -119,36 +120,44 @@
             this.mnuAgregarLugar,
             this.mnuRegistro,
             this.mnuHistorial});
+            this.mnuTareas.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuTareas.Image = ((System.Drawing.Image)(resources.GetObject("mnuTareas.Image")));
             this.mnuTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mnuTareas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuTareas.Name = "mnuTareas";
-            this.mnuTareas.Size = new System.Drawing.Size(52, 28);
+            this.mnuTareas.Size = new System.Drawing.Size(83, 28);
             this.mnuTareas.Text = "Tareas";
+            this.mnuTareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // mnuAgregarTarea
             // 
+            this.mnuAgregarTarea.Image = global::pryLopezTparcial.Properties.Resources.imgAgregarTarea;
             this.mnuAgregarTarea.Name = "mnuAgregarTarea";
-            this.mnuAgregarTarea.Size = new System.Drawing.Size(180, 22);
+            this.mnuAgregarTarea.Size = new System.Drawing.Size(161, 22);
             this.mnuAgregarTarea.Text = "Agregar Tarea";
+            this.mnuAgregarTarea.Click += new System.EventHandler(this.mnuAgregarTarea_Click);
             // 
             // mnuAgregarLugar
             // 
+            this.mnuAgregarLugar.Image = global::pryLopezTparcial.Properties.Resources.imgAgregarLugar;
             this.mnuAgregarLugar.Name = "mnuAgregarLugar";
-            this.mnuAgregarLugar.Size = new System.Drawing.Size(180, 22);
+            this.mnuAgregarLugar.Size = new System.Drawing.Size(161, 22);
             this.mnuAgregarLugar.Text = "Agregar Lugar";
             this.mnuAgregarLugar.Click += new System.EventHandler(this.mnuAgregarLugar_Click);
             // 
             // mnuRegistro
             // 
+            this.mnuRegistro.Image = global::pryLopezTparcial.Properties.Resources.imgRegistro;
             this.mnuRegistro.Name = "mnuRegistro";
-            this.mnuRegistro.Size = new System.Drawing.Size(180, 22);
+            this.mnuRegistro.Size = new System.Drawing.Size(161, 22);
             this.mnuRegistro.Text = "Registro";
             this.mnuRegistro.Click += new System.EventHandler(this.mnuRegistro_Click);
             // 
             // mnuHistorial
             // 
+            this.mnuHistorial.Image = global::pryLopezTparcial.Properties.Resources.imgHistorial;
             this.mnuHistorial.Name = "mnuHistorial";
-            this.mnuHistorial.Size = new System.Drawing.Size(180, 22);
+            this.mnuHistorial.Size = new System.Drawing.Size(161, 22);
             this.mnuHistorial.Text = "Historial";
             this.mnuHistorial.Click += new System.EventHandler(this.mnuHistorial_Click);
             // 
@@ -157,25 +166,27 @@
             this.mnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuUsuarios,
             this.mnuAuditoria});
+            this.mnuAdmin.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuAdmin.Image = global::pryLopezTparcial.Properties.Resources.imgAdmin;
+            this.mnuAdmin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAdmin.Name = "mnuAdmin";
-            this.mnuAdmin.Size = new System.Drawing.Size(100, 28);
-            this.mnuAdmin.Text = "Administración";
+            this.mnuAdmin.Size = new System.Drawing.Size(134, 28);
+            this.mnuAdmin.Text = " Administración";
+            this.mnuAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // mnuUsuarios
             // 
-            this.mnuUsuarios.Image = global::pryLopezTparcial.Properties.Resources.imgUsuarios;
-            this.mnuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnuUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("mnuUsuarios.Image")));
             this.mnuUsuarios.Name = "mnuUsuarios";
-            this.mnuUsuarios.Size = new System.Drawing.Size(131, 30);
+            this.mnuUsuarios.Size = new System.Drawing.Size(129, 22);
             this.mnuUsuarios.Text = "Usuarios";
             this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
             // mnuAuditoria
             // 
-            this.mnuAuditoria.Image = global::pryLopezTparcial.Properties.Resources.imgAuditoria;
-            this.mnuAuditoria.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mnuAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("mnuAuditoria.Image")));
             this.mnuAuditoria.Name = "mnuAuditoria";
-            this.mnuAuditoria.Size = new System.Drawing.Size(131, 30);
+            this.mnuAuditoria.Size = new System.Drawing.Size(129, 22);
             this.mnuAuditoria.Text = "Auditoria";
             this.mnuAuditoria.Click += new System.EventHandler(this.mnuAuditoria_Click);
             // 
@@ -187,6 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(845, 554);
             this.Controls.Add(this.statusBarInicio);
             this.Controls.Add(this.menuInicio);

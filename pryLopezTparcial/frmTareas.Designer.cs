@@ -1,6 +1,6 @@
 ﻿namespace pryLopezTparcial
 {
-    partial class Tareas
+    partial class frmTareas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tareas));
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTareas));
             this.dgvTareas = new System.Windows.Forms.DataGridView();
             this.mrcUsuarios = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -37,18 +37,12 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNomTarea = new System.Windows.Forms.TextBox();
             this.lblNomTarea = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.epValidacion = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             this.mrcUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Image = global::pryLopezTparcial.Properties.Resources.imgVolver;
-            this.btnVolver.Location = new System.Drawing.Point(593, 34);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(52, 35);
-            this.btnVolver.TabIndex = 17;
-            this.btnVolver.UseVisualStyleBackColor = true;
             // 
             // dgvTareas
             // 
@@ -58,13 +52,14 @@
             this.dgvTareas.AllowUserToResizeRows = false;
             this.dgvTareas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTareas.Location = new System.Drawing.Point(316, 34);
+            this.dgvTareas.Location = new System.Drawing.Point(316, 32);
             this.dgvTareas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTareas.Name = "dgvTareas";
             this.dgvTareas.ReadOnly = true;
             this.dgvTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTareas.Size = new System.Drawing.Size(270, 277);
             this.dgvTareas.TabIndex = 16;
+            this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
             // 
             // mrcUsuarios
             // 
@@ -73,7 +68,7 @@
             this.mrcUsuarios.Controls.Add(this.btnAgregar);
             this.mrcUsuarios.Controls.Add(this.txtNomTarea);
             this.mrcUsuarios.Controls.Add(this.lblNomTarea);
-            this.mrcUsuarios.Location = new System.Drawing.Point(13, 27);
+            this.mrcUsuarios.Location = new System.Drawing.Point(13, 25);
             this.mrcUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.mrcUsuarios.Name = "mrcUsuarios";
             this.mrcUsuarios.Padding = new System.Windows.Forms.Padding(4);
@@ -92,6 +87,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -104,6 +100,7 @@
             this.btnModificar.TabIndex = 7;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -136,20 +133,37 @@
             this.lblNomTarea.TabIndex = 2;
             this.lblNomTarea.Text = "Nombre";
             // 
-            // Tareas
+            // btnVolver
+            // 
+            this.btnVolver.Image = global::pryLopezTparcial.Properties.Resources.imgVolver;
+            this.btnVolver.Location = new System.Drawing.Point(593, 32);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(52, 35);
+            this.btnVolver.TabIndex = 17;
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // epValidacion
+            // 
+            this.epValidacion.ContainerControl = this;
+            // 
+            // frmTareas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 324);
+            this.ClientSize = new System.Drawing.Size(659, 327);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvTareas);
             this.Controls.Add(this.mrcUsuarios);
-            this.Name = "Tareas";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmTareas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tareas";
             this.Load += new System.EventHandler(this.frmTareas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             this.mrcUsuarios.ResumeLayout(false);
             this.mrcUsuarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epValidacion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,5 +178,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtNomTarea;
         private System.Windows.Forms.Label lblNomTarea;
+        private System.Windows.Forms.ErrorProvider epValidacion;
     }
 }

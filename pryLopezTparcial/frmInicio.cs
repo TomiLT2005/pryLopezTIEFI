@@ -85,7 +85,8 @@ namespace pryLopezTparcial
 
 
             conexion.GuardarSesion(sesion);
-            Application.Exit();
+
+            this.Close();
         }
 
 
@@ -109,7 +110,11 @@ namespace pryLopezTparcial
             {
                 timerTiempo.Enabled = false; //detiene el timer
 
-                Application.Exit();
+                
+                frmLogin ventanaLogin = new frmLogin();
+                ventanaLogin.Show();
+
+                this.Close();
             }
         }
 
@@ -136,7 +141,7 @@ namespace pryLopezTparcial
         //Ventana Lugar
         private void mnuAgregarLugar_Click(object sender, EventArgs e)
         {
-            frmLugar ventana = new frmLugar();
+            frmLugares ventana = new frmLugares();
             ventana.ShowDialog();
         }
 
@@ -151,6 +156,12 @@ namespace pryLopezTparcial
         private void mnuHistorial_Click(object sender, EventArgs e)
         {
             frmHistorial ventana = new frmHistorial();
+            ventana.ShowDialog();
+        }
+
+        private void mnuAgregarTarea_Click(object sender, EventArgs e)
+        {
+            frmTareas ventana = new frmTareas();
             ventana.ShowDialog();
         }
     }

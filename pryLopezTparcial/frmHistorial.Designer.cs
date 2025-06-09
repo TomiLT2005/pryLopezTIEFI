@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistorial));
             this.mrcBuscar = new System.Windows.Forms.GroupBox();
             this.dtpBuscarFecha = new System.Windows.Forms.DateTimePicker();
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
@@ -112,6 +113,7 @@
             this.Controls.Add(this.mrcTarea);
             this.Controls.Add(this.mrcBuscar);
             this.Controls.Add(this.dgvHistorial);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHistorial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historial";
