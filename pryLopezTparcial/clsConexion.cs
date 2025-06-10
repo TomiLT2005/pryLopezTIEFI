@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
+using System.Drawing;
 
 namespace pryLopezTparcial
 {
@@ -18,6 +19,7 @@ namespace pryLopezTparcial
         private string cadena2 = "Server=localhost;Database=Auditoria;Trusted_Connection=True;"; //Laboratorio//
 
 
+        #region verificar conexion
 
         //Verificar Conexión
         public void ConectarBD()
@@ -34,7 +36,10 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error en la conexión a la base de datos: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
+
+        #region Usuarios
 
 
         //Listar Usuarios
@@ -62,6 +67,7 @@ namespace pryLopezTparcial
                 MessageBox.Show($"No se pudieron cargar los Usuarios correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Cargar Roles
@@ -92,6 +98,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al cargar categorías: " + error.Message);
             }
         }
+
 
 
         //Agregar Usuario
@@ -260,12 +267,10 @@ namespace pryLopezTparcial
 
             return loginExitoso;
         }
+        #endregion
 
 
-
-
-
-        //-----------------------------------------------------------------------------------------------------------------
+        #region Registros
 
         //Agregar Registro
         public void Agregar_Registro(clsRegistro registro)
@@ -315,6 +320,7 @@ namespace pryLopezTparcial
         }
 
 
+
         //Listar Registros
         public void Listar_Registros(DataGridView grilla)
         {
@@ -344,6 +350,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al listar los registros: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Buscar Registros por Fecha
@@ -383,6 +390,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al buscar por fecha: " + error.Message);
             }
         }
+
 
 
         //Buscar por Tarea
@@ -426,11 +434,10 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al buscar el usuario: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
 
-
-
-        //-----------------------------------------------------------------------------------------------------------------
+        #region Tareas
 
         //Cargar Tareas
         public void CargarTareas(ComboBox Combo)
@@ -462,6 +469,7 @@ namespace pryLopezTparcial
         }
 
 
+
         //Agregar Tarea
         public void Agregar_Tarea(clsTarea tarea)
         {
@@ -485,6 +493,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al agregar tarea: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Modificar Tarea
@@ -514,6 +523,7 @@ namespace pryLopezTparcial
         }
 
 
+
         //Eliminar Tarea
         public void Eliminar_Tarea(int id)
         {
@@ -537,6 +547,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al eliminar la tarea: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Listar Usuarios
@@ -563,11 +574,10 @@ namespace pryLopezTparcial
                 MessageBox.Show($"No se pudieron cargar las Tareas correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
 
-
-
-        //--------------------------------------------------------------------------------------------------------------------------------
+        #region Lugares
 
         //Cargar Lugares
         public void CargarLugares(ComboBox Combo)
@@ -599,6 +609,7 @@ namespace pryLopezTparcial
         }
 
 
+
         //Agregar Lugar
         public void Agregar_Lugar(clsLugar lugar)
         {
@@ -622,6 +633,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al agregar lugar: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Modificar Lugar
@@ -651,6 +663,7 @@ namespace pryLopezTparcial
         }
 
 
+
         //Eliminar Lugar
         public void Eliminar_Lugar(int id)
         {
@@ -674,6 +687,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al eliminar el lugar: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Listar Usuarios
@@ -700,11 +714,10 @@ namespace pryLopezTparcial
                 MessageBox.Show($"No se pudieron cargar los Lugares correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
 
-
-
-        //-----------------------------------------------------------------------------------------------------------------
+        #region Sesiones
 
         //Guardar Sesión
         public void GuardarSesion(clsSesion sesion)
@@ -734,6 +747,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al guardar Sesión: " + error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Obtener Id del usuario por Nombre
@@ -769,6 +783,7 @@ namespace pryLopezTparcial
         }
 
 
+
         //Listar Sesiones
         public void ListarSesiones(DataGridView Grilla)
         {
@@ -795,6 +810,7 @@ namespace pryLopezTparcial
                 MessageBox.Show($"No se pudieron cargar las sesiones correctamente. Revise su conexión o intente más tarde. Detalles del error: {error.Message}", "Error de carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         //Buscar Sesiones por Fecha
@@ -832,6 +848,7 @@ namespace pryLopezTparcial
                 MessageBox.Show("Error al buscar por fecha: " + error.Message);
             }
         }
-    }  
+        #endregion
+    }
 }
 

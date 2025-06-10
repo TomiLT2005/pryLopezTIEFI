@@ -28,9 +28,20 @@ namespace pryLopezTparcial
         //Evento de carga del formulario
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            timerLogin.Enabled = true; //Inicia el timer
+
             txtContraseña.PasswordChar = '●';
             btnOcultar.Image = Properties.Resources.imgOjoCerrado;
+
+
+            //El form captura los eventos de teclado antes que los controles
+            this.KeyPreview = true;
+            this.KeyPress += frmLogin_KeyPress;
+            this.MouseMove += frmLogin_MouseMove; 
+
         }
+
+
 
 
         //Evento Controles Principales (Ingresar y Cancelar)
@@ -75,7 +86,9 @@ namespace pryLopezTparcial
         }
 
 
-        //Evento Ocultar y Mostrar Contraseñas
+
+
+        //Controles Secundarios (Ocultar y Mostrar Contraseñas y tiempo excedido)
         private void btnOcultar_Click(object sender, EventArgs e)
         {
             if(txtContraseña.PasswordChar == '●')
@@ -88,6 +101,34 @@ namespace pryLopezTparcial
                 txtContraseña.PasswordChar = '●';
                 btnOcultar.Image = Properties.Resources.imgOjoCerrado;
             }
+        }
+
+
+        private void timerLogin_Tick(object sender, EventArgs e)
+        {
+            
+            timerLogin.Enabled = false; //Detiene el timer  
+            MessageBox.Show("Tiempo excedido. Cerrando la aplicación.", "Tiempo de espera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            Application.Exit();
+        }
+
+
+        private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            reiniciarTimer();
+        }
+
+        private void frmLogin_MouseMove(object sender, MouseEventArgs e)
+        {
+            reiniciarTimer();
+        }
+
+
+        //evento para reiniciar el timer
+        private void reiniciarTimer()
+        {
+            timerLogin.Enabled = false;
+            timerLogin.Enabled = true;
         }
     }
 }

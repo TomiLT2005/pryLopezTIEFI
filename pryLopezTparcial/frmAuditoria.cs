@@ -13,7 +13,8 @@ namespace pryLopezTparcial
     public partial class frmAuditoria: Form
     {
 
-        clsConexion conexionBD = new clsConexion(); 
+        clsConexion conexionBD = new clsConexion();
+
 
         public frmAuditoria()
         {

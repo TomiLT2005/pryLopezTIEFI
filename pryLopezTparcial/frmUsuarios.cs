@@ -19,6 +19,7 @@ namespace pryLopezTparcial
         //Variable para guardar el Id seleccionado
         private int IdSeleccionado = 0;
 
+       
         public frmUsuarios()
         {
             InitializeComponent();

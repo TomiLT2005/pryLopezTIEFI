@@ -24,7 +24,7 @@ namespace pryLopezTparcial
         private void frmHistorial_Load(object sender, EventArgs e)
         {
             conexion.Listar_Registros(dgvHistorial);
-            dtpBuscarFecha.MaxDate = DateTime.Today;
+            dtpBuscarFecha.MaxDate = DateTime.Now;
         }
 
 

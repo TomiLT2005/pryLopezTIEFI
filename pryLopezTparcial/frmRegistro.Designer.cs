@@ -77,6 +77,7 @@
             this.mrcRegistro.TabIndex = 1;
             this.mrcRegistro.TabStop = false;
             this.mrcRegistro.Text = "Nuevo Registro";
+            this.mrcRegistro.Enter += new System.EventHandler(this.mrcRegistro_Enter);
             // 
             // btnCancelar
             // 

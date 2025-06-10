@@ -27,7 +27,10 @@ CREATE TABLE Usuarios (
 GO
 
 INSERT INTO Usuarios (Nombre, Contraseña, Correo, Telefono, RolId)
-VALUES ('admin', 'tomi123', 'tomilopeztorres@gmail.com', '(03472) 582169', 1);
+VALUES 
+('admin', 'tomi123', 'tomilopeztorres@gmail.com', '(03472) 582169', 1),
+('supervisor', '123', 'supervisor@empresa.com', '(03472) 123456', 2), -- Supervisor
+('usuario', '123', 'usuario@empresa.com', '(03472) 654321', 3); -- Usuario común
 GO
 
 -- Tabla Sesiones

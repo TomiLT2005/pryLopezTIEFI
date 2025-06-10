@@ -101,5 +101,10 @@ namespace pryLopezTparcial
             chkRecibo.Checked = false;
             txtComentarios.Text = "";
         }
+
+        private void mrcRegistro_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

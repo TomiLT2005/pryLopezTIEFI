@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pnlUsuario = new System.Windows.Forms.Panel();
             this.pbUsuario = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,7 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.timerLogin = new System.Windows.Forms.Timer(this.components);
             this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             this.pnlContraseña.SuspendLayout();
@@ -164,6 +166,11 @@
             this.pbFoto.TabIndex = 0;
             this.pbFoto.TabStop = false;
             // 
+            // timerLogin
+            // 
+            this.timerLogin.Interval = 90000;
+            this.timerLogin.Tick += new System.EventHandler(this.timerLogin_Tick);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -181,6 +188,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesión";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmLogin_MouseMove);
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
@@ -204,6 +213,7 @@
         private System.Windows.Forms.Button btnOcultar;
         private System.Windows.Forms.PictureBox pbUsuario;
         private System.Windows.Forms.PictureBox pbContraseña;
+        private System.Windows.Forms.Timer timerLogin;
     }
 }
 
