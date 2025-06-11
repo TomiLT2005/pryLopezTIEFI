@@ -26,7 +26,6 @@ namespace pryLopezTparcial
         }
 
 
-
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             conexion.ConectarBD();   //verificar conexión//

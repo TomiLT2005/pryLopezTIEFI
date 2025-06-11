@@ -41,8 +41,10 @@ namespace pryLopezTparcial
            
             timerTiempo.Enabled = true; //inicia el timer
 
+
             //Usuario activo
-            lblUsuarioActivo.Text = $"Bienvenido: {nombreUsuario}";
+            lblBienvenido.Text = "Bienvenido: ";
+            lblUsuarioActivo.Text = nombreUsuario;
 
             //Fecha de Inicio
             lblFechaInicio.Text = $"Fecha de Inicio: {horaInicio.ToString("dd/MM/yyyy")}";
@@ -52,17 +54,20 @@ namespace pryLopezTparcial
             if (rolUsuario == 1)
             {
                 mnuRegistro.Visible = false;
+                lblUsuarioActivo.ForeColor = Color.Purple;
             }
             else if (rolUsuario == 2)
             {
                 mnuRegistro.Visible = false;
                 mnuAdmin.Visible = false;
+                lblUsuarioActivo.ForeColor = Color.OrangeRed;
             }
             else 
             {
                 mnuAgregarTarea.Visible = false;
                 mnuAgregarLugar.Visible = false;
                 mnuAdmin.Visible = false;
+                lblUsuarioActivo.ForeColor = Color.Green;
             }
         }
 

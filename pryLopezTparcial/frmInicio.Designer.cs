@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.statusBarInicio = new System.Windows.Forms.StatusStrip();
-            this.lblUsuarioActivo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblBienvenido = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblTiempo = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblFechaInicio = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuInicio = new System.Windows.Forms.MenuStrip();
@@ -46,6 +46,7 @@
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuditoria = new System.Windows.Forms.ToolStripMenuItem();
             this.timerTiempo = new System.Windows.Forms.Timer(this.components);
+            this.lblUsuarioActivo = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarInicio.SuspendLayout();
             this.menuInicio.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             // statusBarInicio
             // 
             this.statusBarInicio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblBienvenido,
             this.lblUsuarioActivo,
             this.LblTiempo,
             this.lblFechaInicio});
@@ -62,24 +64,25 @@
             this.statusBarInicio.TabIndex = 0;
             this.statusBarInicio.Text = "statusStrip1";
             // 
-            // lblUsuarioActivo
+            // lblBienvenido
             // 
-            this.lblUsuarioActivo.Font = new System.Drawing.Font("Yu Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioActivo.Name = "lblUsuarioActivo";
-            this.lblUsuarioActivo.Size = new System.Drawing.Size(90, 17);
-            this.lblUsuarioActivo.Text = "Usuario Activo";
+            this.lblBienvenido.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenido.Name = "lblBienvenido";
+            this.lblBienvenido.Size = new System.Drawing.Size(80, 17);
+            this.lblBienvenido.Text = "Bienvenido:";
             // 
             // LblTiempo
             // 
             this.LblTiempo.Name = "LblTiempo";
-            this.LblTiempo.Size = new System.Drawing.Size(702, 17);
+            this.LblTiempo.Size = new System.Drawing.Size(603, 17);
             this.LblTiempo.Spring = true;
             this.LblTiempo.Text = "Tiempo";
             // 
             // lblFechaInicio
             // 
+            this.lblFechaInicio.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicio.Name = "lblFechaInicio";
-            this.lblFechaInicio.Size = new System.Drawing.Size(38, 17);
+            this.lblFechaInicio.Size = new System.Drawing.Size(43, 17);
             this.lblFechaInicio.Text = "Fecha";
             // 
             // menuInicio
@@ -194,6 +197,13 @@
             // 
             this.timerTiempo.Tick += new System.EventHandler(this.timerTiempo_Tick);
             // 
+            // lblUsuarioActivo
+            // 
+            this.lblUsuarioActivo.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioActivo.Name = "lblUsuarioActivo";
+            this.lblUsuarioActivo.Size = new System.Drawing.Size(98, 17);
+            this.lblUsuarioActivo.Text = "Usuario Activo";
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -224,7 +234,7 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusBarInicio;
-        private System.Windows.Forms.ToolStripStatusLabel lblUsuarioActivo;
+        private System.Windows.Forms.ToolStripStatusLabel lblBienvenido;
         private System.Windows.Forms.MenuStrip menuInicio;
         private System.Windows.Forms.ToolStripMenuItem mnuHome;
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
@@ -239,5 +249,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuRegistro;
         private System.Windows.Forms.ToolStripMenuItem mnuHistorial;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregarTarea;
+        private System.Windows.Forms.ToolStripStatusLabel lblUsuarioActivo;
     }
 }
